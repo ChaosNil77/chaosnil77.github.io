@@ -159,22 +159,22 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: white;
+            background-color: #22316C; /* Changed to dark blue */
             min-width: 260px; 
-            box-shadow: 0px 8px 16px 0px rgba(34, 49, 108, 0.15);
+            box-shadow: 0px 8px 16px 0px rgba(34, 49, 108, 0.25);
             z-index: 10;
-            border-top: 10px solid #22316C;
+            border-top: 10px solid #C02C21; /* Red border to create contrast against the dark blue dropdown */
             border-radius: 0 0 4px 4px;
         }
 
         /* Dropdown Links */
         .dropdown-content a {
-            color: #22316C;
+            color: white; /* Changed to white */
             padding: 12px 16px;
             text-decoration: none;
             display: block;
             text-align: left;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Soft white separator */
             font-size: 0.95em;
         }
 
@@ -183,8 +183,8 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #fdf5f5;
-            color: #C02C21;
+            background-color: #1a224c; /* Slightly darker blue on hover */
+            color: white;
         }
 
         /* Desktop Hover logic */
@@ -446,10 +446,10 @@
             }
             .dropdown-content a {
                 padding: 0.6rem 1.5rem 0.6rem 2.5rem;
-                background-color: #fceceb;
-                color: #22316C;
+                background-color: #22316C; /* Dark blue for mobile dropdowns too */
+                color: white; /* White text for mobile */
                 font-size: 0.9em;
-                border-bottom: 1px solid #f0d5d3;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             }
             
             /* Welcome Panel Mobile Layout */
@@ -638,7 +638,6 @@
 
     <footer>
         <p><strong>St. Eanswythe's Primary School</strong></p>
-        <p>A Church of England Academy, Folkestone</p>
         <p>Church Street, Folkestone, Kent. CT20 1SE</p>
         <p>Tel: 01303 255516 | Email: office@st-eanswythes.kent.sch.uk</p>
         <p style="margin-top: 1rem; font-size: 0.8em; color: #a0aec0;">&copy; 2026 St. Eanswythe's School. All rights reserved.</p>
