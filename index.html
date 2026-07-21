@@ -342,17 +342,46 @@
         footer {
             background-color: #1a224c;
             color: white;
-            text-align: center;
-            padding: 1.5rem 2rem; /* Reduced top and bottom padding */
+            padding: 1.5rem 2rem; 
             border-top: 3px solid #C02C21;
-            line-height: 1.3; /* Tightened up the line spacing */
+            line-height: 1.3; 
         }
-        footer strong {
+        
+        .footer-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-text {
+            text-align: center;
+        }
+        .footer-text strong {
             color: white;
         }
-        footer p {
-            margin-bottom: 0.3rem; /* Reduced margin between lines */
+        .footer-text p {
+            margin-bottom: 0.3rem; 
             color: white;
+        }
+
+        .footer-buttons {
+            position: absolute;
+            right: 0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .footer-btn {
+            height: 45px; /* Adjust this size if needed */
+            width: auto;
+            border-radius: 6px;
+            transition: transform 0.2s ease;
+        }
+        .footer-btn:hover {
+            transform: scale(1.05);
         }
 
         /* Responsive Design - Mobile Styling */
@@ -477,6 +506,16 @@
             .welcome-content {
                 padding: 1.5rem;
             }
+
+            /* Mobile Footer Updates */
+            .footer-container {
+                flex-direction: column;
+            }
+            .footer-buttons {
+                position: static;
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -592,7 +631,6 @@
                 </div>
                 
                 <div class="welcome-content">
-                    <!-- Updated alt text just in case! -->
                     <img src="home/images/claire.png" alt="Headteacher Mrs Jacobs" class="headteacher-photo">
                     
                     <p class="welcome-intro">Welcome to St Eanswythe’s Primary School, a happy and caring community with a strong Christian ethos, located in the heart of town. We take a holistic approach to education, ensuring every child achieves excellent academic progress while developing into a kind, respectful, and responsible citizen.</p>
@@ -639,10 +677,23 @@
     </main>
 
     <footer>
-        <p><strong>St. Eanswythe's Primary School</strong></p>
-        <p>Church Street, Folkestone, Kent. CT20 1SE</p>
-        <p>Tel: 01303 255516 | Email: office@st-eanswythes.kent.sch.uk</p>
-        <p style="margin-top: 1rem; font-size: 0.8em; color: #a0aec0;">&copy; 2026 St. Eanswythe's School. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-text">
+                <p><strong>St. Eanswythe's Primary School</strong></p>
+                <p>Church Street, Folkestone, Kent. CT20 1SE</p>
+                <p>Tel: 01303 255516 | Email: office@st-eanswythes.kent.sch.uk</p>
+                <p style="margin-top: 1rem; font-size: 0.8em; color: #a0aec0;">&copy; 2026 St. Eanswythe's School. All rights reserved.</p>
+            </div>
+            
+            <div class="footer-buttons">
+                <a href="https://www.ceop.police.uk/ceop-reporting/" target="_blank">
+                    <img src="home/images/ceop-button.png" alt="CEOP Reporting" class="footer-btn">
+                </a>
+                <a href="https://login.arbor.sc/" target="_blank">
+                    <img src="home/images/arbor-button.png" alt="Arbor Login" class="footer-btn">
+                </a>
+            </div>
+        </div>
     </footer>
 
     <script>
