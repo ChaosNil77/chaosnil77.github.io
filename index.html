@@ -73,20 +73,20 @@
             align-items: center;
         }
         .header-search input[type="text"] {
-            padding: 0.4rem 1rem; /* Reduced padding */
+            padding: 0.4rem 1rem; 
             border: 2px solid #C02C21; 
             border-right: none;
-            border-radius: 20px 0 0 20px; /* Scaled down the border-radius slightly */
+            border-radius: 20px 0 0 20px; 
             outline: none;
-            font-size: 0.9rem; /* Slightly smaller text */
-            width: 160px; /* Reduced width */
+            font-size: 0.9rem; 
+            width: 160px; 
             color: #22316C;
         }
         .header-search input[type="text"]:focus {
             border-color: #22316C; 
         }
         .header-search button {
-            padding: 0.4rem 1rem; /* Reduced padding */
+            padding: 0.4rem 1rem; 
             background-color: #C02C21; 
             color: white;
             border: 2px solid #C02C21;
@@ -160,7 +160,7 @@
             display: none;
             position: absolute;
             background-color: white;
-            min-width: 220px;
+            min-width: 260px; /* Made slightly wider to fit new longer titles */
             box-shadow: 0px 8px 16px 0px rgba(34, 49, 108, 0.15);
             z-index: 10;
             border-top: 10px solid #22316C;
@@ -496,7 +496,6 @@
                 <input type="hidden" name="as_sitesearch" value="st-eanswythes.kent.sch.uk">
                 <input type="text" name="q" placeholder="Search site..." required>
                 <button type="submit" aria-label="Search">
-                    <!-- Adjusted the SVG size from 18 to 16 to match the smaller button -->
                     <svg viewBox="0 0 24 24" width="16" height="16" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -511,51 +510,69 @@
             <span>☰ Menu</span>
         </button>
         <ul class="nav-links">
-            <li class="dropdown">
-                <a href="#home">Home ▾</a>
-                <div class="dropdown-content">
-                    <a href="#welcome">Headteacher's Welcome</a>
-                    <a href="#vision">Vision & Values</a>
-                    <a href="#news">Latest News</a>
-                </div>
-            </li>
             
             <li class="dropdown">
-                <a href="#about">About Us ▾</a>
+                <a href="#our-school">Our School ▾</a>
                 <div class="dropdown-content">
-                    <a href="#staff">Meet the Staff</a>
-                    <a href="#governors">Governors</a>
+                    <a href="#vision">Our Christian Vision</a>
+                    <a href="#staff">Our Staff</a>
                     <a href="#admissions">Admissions</a>
-                    <a href="policies.html">Policies & Safeguarding</a>
+                    <a href="#governors">Governors</a>
+                    <a href="policies.html">Policies</a>
+                    <a href="#inspections">Inspection Reports and SATs Results</a>
+                    <a href="#pupil-premium">Pupil Premium</a>
+                    <a href="#pe-premium">PE and Sport Premium</a>
+                    <a href="#sen">Special Educational Needs</a>
+                    <a href="#pastoral">Pastoral Care</a>
+                    <a href="#financial">Financial Information and Benchmarking</a>
                 </div>
             </li>
             
             <li class="dropdown">
-                <a href="#curriculum">Learning ▾</a>
+                <a href="#classes">Classes ▾</a>
                 <div class="dropdown-content">
-                    <a href="#subjects">Curriculum Subjects</a>
-                    <a href="#sen">SEND Support</a>
-                    <a href="#clubs">Clubs & Enrichment</a>
+                    <a href="#class-newsletters">Class Newsletters</a>
+                    <a href="#class-r">Class R</a>
+                    <a href="#class-1">Class 1</a>
+                    <a href="#class-2">Class 2</a>
+                    <a href="#class-3">Class 3</a>
+                    <a href="#class-4">Class 4</a>
+                    <a href="#class-5">Class 5</a>
+                    <a href="#class-6">Class 6</a>
                 </div>
             </li>
             
             <li class="dropdown">
-                <a href="#parents">Parents Hub ▾</a>
+                <a href="#parents">Parents and Carers ▾</a>
                 <div class="dropdown-content">
-                    <a href="#letters">Letters Home</a>
+                    <a href="#ptfa">PTFA</a>
+                    <a href="#newsletters">Newsletters</a>
                     <a href="calendar.html">Term Dates</a>
-                    <a href="#uniform">Uniform Guidelines</a>
-                    <a href="#pta">PTA (Friends of St. Eanswythe's)</a>
+                    <a href="#uniform">Uniform</a>
+                    <a href="#homework">Homework</a>
+                    <a href="#wraparound">Breakfast and After School Clubs</a>
+                    <a href="#meals">School Meals</a>
+                    <a href="#clubs">School Clubs</a>
+                    <a href="#attendance">Attendance</a>
                 </div>
             </li>
             
             <li class="dropdown">
-                <a href="#contact">Contact ▾</a>
+                <a href="#safeguarding">Safeguarding ▾</a>
                 <div class="dropdown-content">
-                    <a href="#details">Contact Details & Map</a>
-                    <a href="#vacancies">Staff Vacancies</a>
+                    <a href="#cp-safeguarding">Child Protection and Safeguarding</a>
+                    <a href="#online-safety">Online Safeguarding</a>
                 </div>
             </li>
+            
+            <li class="dropdown">
+                <a href="#church">Church</a>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#contact">Contact Us</a>
+            </li>
+
         </ul>
     </nav>
 
@@ -622,8 +639,8 @@
     <footer>
         <p><strong>St. Eanswythe's Primary School</strong></p>
         <p>A Church of England Academy, Folkestone</p>
-        <p>123 School Lane, Folkestone, Kent, CT20 2XX</p>
-        <p>Tel: 01303 252525 | Email: office@st-eanswythes.kent.sch.uk</p>
+        <p>Church Street, Folkestone, Kent. CT20 1SE</p>
+        <p>Tel: 01303 255516 | Email: office@st-eanswythes.kent.sch.uk</p>
         <p style="margin-top: 1rem; font-size: 0.8em; color: #a0aec0;">&copy; 2026 St. Eanswythe's School. All rights reserved.</p>
     </footer>
 
@@ -643,22 +660,25 @@
                 const triggerLink = dropdown.querySelector('a');
                 const content = dropdown.querySelector('.dropdown-content');
 
-                triggerLink.addEventListener('click', (e) => {
-                    // Only apply accordion logic on mobile screens
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault(); 
+                // Only attach the dropdown click listener if there is an actual dropdown menu inside
+                if (content) {
+                    triggerLink.addEventListener('click', (e) => {
+                        // Only apply accordion logic on mobile screens
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault(); 
 
-                        // Close any other open dropdowns for a clean accordion effect
-                        document.querySelectorAll('.dropdown-content').forEach(menu => {
-                            if (menu !== content) {
-                                menu.classList.remove('show');
-                            }
-                        });
+                            // Close any other open dropdowns for a clean accordion effect
+                            document.querySelectorAll('.dropdown-content').forEach(menu => {
+                                if (menu !== content) {
+                                    menu.classList.remove('show');
+                                }
+                            });
 
-                        // Toggle the clicked dropdown
-                        content.classList.toggle('show');
-                    }
-                });
+                            // Toggle the clicked dropdown
+                            content.classList.toggle('show');
+                        }
+                    });
+                }
             });
         });
     </script>
