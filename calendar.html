@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Term Dates & Calendar - St. Eanswythe's</title>
+    <style>
+        /* General Reset and Base Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #22316C;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 { color: #C02C21; margin-bottom: 1rem; }
+        p { margin-bottom: 1rem; }
+
+        /* Header & Logo */
+        header {
+            background-color: #f9f9f9;
+            color: #22316C;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-logo { max-width: 140px; height: auto; margin-right: 2rem; }
+        .header-text { text-align: left; }
+        header h1 { color: #C02C21; margin: 0; font-size: 2.5rem; line-height: 1.2; }
+        .subtitle { margin: 0.2rem 0 0 0; font-size: 1.2rem; font-weight: 600; }
+        .strapline { margin: 0; font-style: italic; font-size: 1.05rem; }
+
+        /* Navigation */
+        nav {
+            background-color: #C02C21;
+            border-top: 10px solid #22316C;
+            border-bottom: 10px solid #22316C;
+            position: relative;
+        }
+        .mobile-menu-toggle {
+            display: none; background-color: #C02C21; color: white; border: none;
+            font-size: 1.1rem; font-weight: bold; padding: 1rem 1.5rem; width: 100%; text-align: left; cursor: pointer;
+        }
+        .nav-links { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown > a {
+            display: block; color: white; text-decoration: none; padding: 1rem 1.5rem; font-weight: 500; transition: 0.3s;
+        }
+        .dropdown:hover > a { background-color: #a0241b; color: #fceceb; }
+        .dropdown-content {
+            display: none; position: absolute; background-color: white; min-width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(34, 49, 108, 0.15); z-index: 10; border-top: 10px solid #22316C;
+        }
+        .dropdown-content a {
+            color: #22316C; padding: 12px 16px; text-decoration: none; display: block; border-bottom: 1px solid #e2e8f0; font-size: 0.95em;
+        }
+        .dropdown-content a:hover { background-color: #fdf5f5; color: #C02C21; }
+        @media (min-width: 769px) { .dropdown:hover .dropdown-content { display: block; } }
+
+        /* Main Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+        .panel { background: white; padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(34, 49, 108, 0.1); }
+
+        /* --- NEW: Interactive Calendar Styles --- */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22316C;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px 8px 0 0;
+            margin-top: 1.5rem;
+        }
+        
+        .calendar-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .btn-week {
+            background-color: #C02C21;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-week:hover {
+            background-color: #a0241b;
+        }
+        
+        .btn-week:disabled {
+            background-color: #4a5568;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1px;
+            background-color: #e2e8f0;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .day-column {
+            background-color: white;
+            min-height: 250px;
+        }
+
+        .day-title {
+            background-color: #fdf5f5;
+            color: #C02C21;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.8rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .event-list {
+            padding: 1rem;
+            list-style: none;
+        }
+
+        .event-item {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #cbd5e0;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .no-events {
+            color: #a0aec0;
+            font-style: italic;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer { background-color: #1a224c; color: white; text-align: center; padding: 2.5rem; border-top: 3px solid #C02C21; margin-top: 3rem;}
+        footer strong, footer p { color: white; margin-bottom: 0.5rem; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            .header-logo { margin-right: 0; margin-bottom: 1rem; max-width: 110px; }
+            .mobile-menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; width: 100%; background-color: #a0241b; }
+            .nav-links.active { display: flex; }
+            .dropdown { width: 100%; display: block; }
+            .dropdown > a { border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
+            .dropdown-content { position: static; display: none; width: 100%; box-shadow: none; border-top: none; }
+            .dropdown-content.show { display: block; }
+            .dropdown-content a { padding: 0.8rem 1.5rem 0.8rem 2.5rem; background-color: #fceceb; border-bottom: 1px solid #f0d5d3; }
+            
+            /* Calendar Mobile Adjustments */
+            .calendar-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                background-color: transparent;
+                border: none;
+                padding-top: 1rem;
+            }
+            .day-column {
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                min-height: auto;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            }
+            .day-title {
+                border-radius: 8px 8px 0 0;
+            }
+            .calendar-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                border-radius: 8px;
+            }
+            .calendar-controls {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/stelogo.png" alt="St. Eanswythe's School Logo" class="header-logo">
+        <div class="header-text">
+            <h1>St. Eanswythe's Primary School</h1>
+            <p class="subtitle">Church of England Primary School</p>
+            <p class="strapline">Learning Holistically Through God's Unconditional Love.</p>
+        </div>
+    </header>
+
+    <nav>
+        <button class="mobile-menu-toggle">
+            <span>☰ Menu</span>
+        </button>
+        <ul class="nav-links">
+            <li class="dropdown"><a href="index.html">Home ▾</a></li>
+            <li class="dropdown">
+                <a href="index.html#about">About Us ▾</a>
+                <div class="dropdown-content">
+                    <a href="index.html#staff">Meet the Staff</a>
+                    <a href="policies.html">Policies & Safeguarding</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="index.html#curriculum">Learning ▾</a></li>
+            <li class="dropdown">
+                <a href="index.html#parents">Parents Hub ▾</a>
+                <div class="dropdown-content">
+                    <a href="index.html#letters">Letters Home</a>
+                    <a href="calendar.html">Term Dates</a>
+                    <a href="index.html#uniform">Uniform Guidelines</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="index.html#contact">Contact ▾</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="panel">
+            <h2>School Calendar: Summer Term 2026</h2>
+            <p>Keep up to date with all the exciting events, trips, and transition days happening at St. Eanswythe's before the end of the academic year. Use the buttons below to navigate between weeks.</p>
+
+            <!-- Dynamic Calendar Container -->
+            <div class="calendar-header">
+                <div class="calendar-controls">
+                    <button id="btnPrev" class="btn-week">← Previous Week</button>
+                </div>
+                <h3 id="weekTitle">Loading...</h3>
+                <div class="calendar-controls">
+                    <button id="btnNext" class="btn-week">Next Week →</button>
+                </div>
+            </div>
+            
+            <div id="calendarGrid" class="calendar-grid">
+                <!-- JavaScript will populate this area -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>St. Eanswythe's Primary School</strong></p>
+        <p>A Church of England Academy, Folkestone</p>
+        <p>Tel: 01303 252525 | Email: office@st-eanswythes.kent.sch.uk</p>
+    </footer>
+
+    <script>
+        // Calendar Data for July 2026
+        const calendarData = [
+            {
+                weekName: "W/C 29th June 2026",
+                days: [
+                    { day: "Monday 29th", events: ["Ducklings PE", "Sponsored Fun Run"] },
+                    { day: "Tuesday 30th", events: ["Barn Class transition morning", "8:30am: KA/KS meeting with parent", "8:30am: Effective Church Schools Visit", "9:50am: Year 2 workshop Folkestone Museum", "10:00am: AG to visit Kaleidoscope Nursery", "11:00am: CP Team Meeting"] },
+                    { day: "Wednesday 1st", events: ["Turner School Year 6 sleepover", "Beach School Year 1", "9:00am: Street Smart session", "1:30pm: Y5 & Y1 visit Folkestone library", "1:00pm: Year 6 Rehearsals"] },
+                    { day: "Thursday 2nd", events: ["8:30am: Meeting with Ivy's Mum", "11:00am: SALT to see LR", "3:30pm: Stay and Play for Ducklings Parents"] },
+                    { day: "Friday 3rd", events: [] }
+                ]
+            },
+            {
+                weekName: "W/C 6th July 2026",
+                days: [
+                    { day: "Monday 6th", events: ["Beach School (am)"] },
+                    { day: "Tuesday 7th", events: ["9:00am: Rock Steady Concert", "10:00am: After School Club Interviews", "8:30am: LT SENCO forum", "5:30pm: KA Governors meeting St P's"] },
+                    { day: "Wednesday 8th", events: ["Year 1 and 2 Buddy Morning", "9:00am: Coastal Park Site Visit (Y4&5)", "Year 5 Bellboats", "9:15am: Year 6 Rehearsals", "2:30pm: Charivari Parent workshop"] },
+                    { day: "Thursday 9th", events: ["Sports Day (3Hills)", "2:15pm: Year 6 Talent Show", "3:00pm: Reports sent out"] },
+                    { day: "Friday 10th", events: [] }
+                ]
+            },
+            {
+                weekName: "W/C 13th July 2026",
+                days: [
+                    { day: "Monday 13th", events: ["9:30am: Visit by Iambic (Y5&6)", "8:30am: PTFA coffee morning", "11:00am: CP Team Meeting", "1:15pm: School Council"] },
+                    { day: "Tuesday 14th", events: ["9:30am: Year 6 Art Workshop", "10:00am: Morehall Nursery Visit", "1:00pm: Rounders Radnor Park (Y6)", "3:30pm: Piano concert"] },
+                    { day: "Wednesday 15th", events: ["World Cup Party Day", "11:30am: Outcome Strategy discussion", "2:00pm: KS1 & KS2 discos", "3:30pm: Meet and Greet New Ducklings"] },
+                    { day: "Thursday 16th", events: ["KS2 SAT's Results Released", "8:45am: Eucharist service in church", "1:30pm: Year 6 Leavers Service"] },
+                    { day: "Friday 17th", events: ["9:00am: Leavers service St P's", "10:00am: Attendance meeting", "1:30pm: END OF TERM (School finishes at 1:30)"] }
+                ]
+            },
+            {
+                weekName: "W/C 20th July 2026",
+                days: [
+                    { day: "Monday 20th", events: ["Summer Holidays"] },
+                    { day: "Tuesday 21st", events: ["Summer Holidays"] },
+                    { day: "Wednesday 22nd", events: ["Summer Holidays"] },
+                    { day: "Thursday 23rd", events: ["Summer Holidays"] },
+                    { day: "Friday 24th", events: ["Summer Holidays"] }
+                ]
+            }
+        ];
+
+        let currentWeekIndex = 0;
+        
+        const titleEl = document.getElementById('weekTitle');
+        const gridEl = document.getElementById('calendarGrid');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        function renderCalendar() {
+            // Update Title
+            titleEl.textContent = calendarData[currentWeekIndex].weekName;
+            
+            // Clear current grid
+            gridEl.innerHTML = '';
+            
+            // Build the 5 day columns
+            calendarData[currentWeekIndex].days.forEach(dayData => {
+                const column = document.createElement('div');
+                column.className = 'day-column';
+                
+                // Day Title
+                const title = document.createElement('div');
+                title.className = 'day-title';
+                title.textContent = dayData.day;
+                column.appendChild(title);
+                
+                // Events List
+                if (dayData.events.length > 0) {
+                    const ul = document.createElement('ul');
+                    ul.className = 'event-list';
+                    dayData.events.forEach(eventText => {
+                        const li = document.createElement('li');
+                        li.className = 'event-item';
+                        li.textContent = eventText;
+                        ul.appendChild(li);
+                    });
+                    column.appendChild(ul);
+                } else {
+                    const empty = document.createElement('div');
+                    empty.className = 'no-events';
+                    empty.textContent = "No scheduled events";
+                    column.appendChild(empty);
+                }
+                
+                gridEl.appendChild(column);
+            });
+
+            // Update button states
+            btnPrev.disabled = currentWeekIndex === 0;
+            btnNext.disabled = currentWeekIndex === calendarData.length - 1;
+        }
+
+        // Event Listeners
+        btnPrev.addEventListener('click', () => {
+            if (currentWeekIndex > 0) {
+                currentWeekIndex--;
+                renderCalendar();
+            }
+        });
+
+        btnNext.addEventListener('click', () => {
+            if (currentWeekIndex < calendarData.length - 1) {
+                currentWeekIndex++;
+                renderCalendar();
+            }
+        });
+
+        // Initialize mobile menu and calendar
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+            
+            // Initial calendar render
+            renderCalendar();
+        });
+    </script>
+</body>
+</html>
