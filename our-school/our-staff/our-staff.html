@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Staff - St. Eanswythe's</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="home/images/stelogo.png">
+
+    <style>
+        /* General Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #22316C;
+            background-color: #f9f9f9;
+        }
+        
+        /* Typography */
+        h1, h2, h3 {
+            color: #C02C21;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Header & Logo */
+        header {
+            background-color: #f9f9f9;
+            color: #22316C;
+            padding: 1.5rem 2rem; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            max-width: 1100px; 
+            margin: 0 auto;    
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .header-logo {
+            max-width: 140px; 
+            height: auto;
+            margin-right: 2rem; 
+        }
+        .header-text {
+            text-align: left;
+        }
+        header h1 {
+            color: #C02C21;
+            margin: 0;
+            font-size: 3rem; 
+            line-height: 1.2;
+        }
+        .subtitle {
+            margin: 0.2rem 0 0 0;
+            font-size: 1.5rem; 
+            font-weight: 600;
+        }
+        .strapline {
+            margin: 0;
+            font-style: italic;
+            font-size: 1.05rem;
+        }
+
+        /* Header Search Box */
+        .header-search form {
+            display: flex;
+            align-items: center;
+        }
+        .header-search input[type="text"] {
+            padding: 0.4rem 1rem; 
+            border: 2px solid #C02C21; 
+            border-right: none;
+            border-radius: 20px 0 0 20px; 
+            outline: none;
+            font-size: 0.9rem; 
+            width: 160px; 
+            color: #22316C;
+        }
+        .header-search input[type="text"]:focus {
+            border-color: #22316C; 
+        }
+        .header-search button {
+            padding: 0.4rem 1rem; 
+            background-color: #C02C21; 
+            color: white;
+            border: 2px solid #C02C21;
+            border-radius: 0 20px 20px 0; 
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .header-search button:hover {
+            background-color: #a0241b; 
+            border-color: #a0241b;
+        }
+        .header-search button svg {
+            stroke: currentColor;
+        }
+
+        /* Navigation & Dropdowns */
+        nav {
+            background-color: #C02C21;
+            border-top: 10px solid #22316C;
+            border-bottom: 10px solid #22316C;
+            position: relative;
+        }
+
+        /* Mobile Menu Toggle Button */
+        .mobile-menu-toggle {
+            display: none;
+            background-color: #C02C21;
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 1rem 1.5rem;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown > a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dropdown:hover > a {
+            background-color: #a0241b;
+            color: #fceceb;
+        }
+
+        /* Dropdown Content Box */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #22316C; 
+            min-width: 260px; 
+            box-shadow: 0px 8px 16px 0px rgba(34, 49, 108, 0.25);
+            z-index: 10;
+            border-top: 10px solid #C02C21; 
+            border-radius: 0 0 4px 4px;
+        }
+
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: white; 
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+            font-size: 0.95em;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #1a224c; 
+            color: white;
+        }
+
+        /* Desktop Hover logic */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 2rem;
+            border-bottom: 4px solid #C02C21;
+            padding-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #22316C;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Staff Grid Layout */
+        .staff-section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(34, 49, 108, 0.1);
+        }
+
+        .staff-category-title {
+            color: #C02C21;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .staff-card {
+            background: #fdf5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #22316C;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
+        }
+
+        .staff-name {
+            color: #22316C;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .staff-role {
+            color: #4a5568;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a224c;
+            color: white;
+            padding: 1.5rem 2rem; 
+            border-top: 3px solid #C02C21;
+            line-height: 1.3; 
+        }
+        
+        .footer-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-text {
+            text-align: center;
+        }
+        .footer-text strong {
+            color: white;
+        }
+        .footer-text p {
+            margin-bottom: 0.3rem; 
+            color: white;
+        }
+
+        .footer-buttons {
+            position: absolute;
+            right: 0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .footer-btn {
+            height: 45px; 
+            width: auto;
+            border-radius: 6px;
+            transition: transform 0.2s ease;
+        }
+        .footer-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Cookie Banner Styling */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #22316C;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(100%); 
+            transition: transform 0.4s ease-in-out;
+        }
+        
+        .cookie-banner.show {
+            transform: translateY(0); 
+        }
+        
+        .cookie-banner p {
+            margin: 0;
+            font-size: 0.95rem;
+            flex: 1;
+            padding-right: 2rem;
+            color: white;
+        }
+        
+        .cookie-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .cookie-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .accept-btn {
+            background-color: #C02C21;
+            color: white;
+        }
+        
+        .accept-btn:hover {
+            background-color: #a0241b;
+        }
+        
+        .decline-btn {
+            background-color: white;
+            color: #22316C;
+        }
+        
+        .decline-btn:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* Responsive Design - Mobile Styling */
+        @media (max-width: 768px) {
+            
+            /* Mobile Header Layout */
+            header {
+                flex-direction: column;
+                align-items: center; 
+                width: 100%;
+                padding: 1.5rem;
+            }
+            .header-left {
+                flex-direction: column;
+                align-items: center; 
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            .header-logo {
+                margin: 0 0 1rem 0; 
+                max-width: 110px;
+                display: block;
+            }
+            .header-text {
+                text-align: center; 
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center; 
+            }
+            header h1 {
+                font-size: 2.4rem; 
+            }
+            .subtitle {
+                font-size: 1.3rem; 
+            }
+            
+            /* Mobile Search Box */
+            .header-search {
+                width: 100%;
+            }
+            .header-search form {
+                width: 100%;
+                display: flex;
+            }
+            .header-search input[type="text"] {
+                width: 100%;
+                flex-grow: 1;
+            }
+
+            /* Mobile Navigation Toggle */
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .nav-links {
+                display: none; 
+                flex-direction: column;
+                width: 100%;
+                background-color: #a0241b; 
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .dropdown {
+                width: 100%;
+                display: block;
+            }
+            .dropdown > a {
+                padding: 0.85rem 1.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                font-size: 1rem;
+            }
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                border-top: none;
+                border-radius: 0;
+            }
+            .dropdown-content.show {
+                display: block;
+            }
+            .dropdown-content a {
+                padding: 0.6rem 1.5rem 0.6rem 2.5rem;
+                background-color: #22316C; 
+                color: white; 
+                font-size: 0.9em;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            }
+
+            /* Mobile Footer Updates */
+            .footer-container {
+                flex-direction: column;
+            }
+            .footer-buttons {
+                position: static;
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+
+            /* Mobile Cookie Banner Layout */
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            .cookie-banner p {
+                padding-right: 0;
+                margin-bottom: 1rem;
+            }
+            .cookie-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="home/images/stelogo.png" alt="St. Eanswythe's School Logo" class="header-logo">
+            <div class="header-text">
+                <h1>St. Eanswythe's</h1>
+                <p class="subtitle">Church of England Primary School</p>
+                <p class="strapline">Learning Holistically Through God's Unconditional Love.</p>
+            </div>
+        </div>
+
+        <div class="header-search">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
+                <input type="hidden" name="as_sitesearch" value="st-eanswythes.kent.sch.uk">
+                <input type="text" name="q" placeholder="Search site..." required>
+                <button type="submit" aria-label="Search">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <nav>
+        <button class="mobile-menu-toggle">
+            <span>☰ Menu</span>
+        </button>
+        <ul class="nav-links">
+            
+            <li class="dropdown">
+                <a href="#our-school">Our School ▾</a>
+                <div class="dropdown-content">
+                    <a href="#vision">Our Christian Vision</a>
+                    <a href="staff.html">Our Staff</a>
+                    <a href="#admissions">Admissions</a>
+                    <a href="#governors">Governors</a>
+                    <a href="policies.html">Policies</a>
+                    <a href="#inspections">Inspection Reports and SATs Results</a>
+                    <a href="#pupil-premium">Pupil Premium</a>
+                    <a href="#pe-premium">PE and Sport Premium</a>
+                    <a href="#sen">Special Educational Needs</a>
+                    <a href="#pastoral">Pastoral Care</a>
+                    <a href="#financial">Financial Information and Benchmarking</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#classes">Classes ▾</a>
+                <div class="dropdown-content">
+                    <a href="#class-newsletters">Class Newsletters</a>
+                    <a href="#class-r">Class R</a>
+                    <a href="#class-1">Class 1</a>
+                    <a href="#class-2">Class 2</a>
+                    <a href="#class-3">Class 3</a>
+                    <a href="#class-4">Class 4</a>
+                    <a href="#class-5">Class 5</a>
+                    <a href="#class-6">Class 6</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#parents">Parents and Carers ▾</a>
+                <div class="dropdown-content">
+                    <a href="#ptfa">PTFA</a>
+                    <a href="#newsletters">Newsletters</a>
+                    <a href="calendar.html">Term Dates</a>
+                    <a href="#uniform">Uniform</a>
+                    <a href="#homework">Homework</a>
+                    <a href="#wraparound">Breakfast and After School Clubs</a>
+                    <a href="#meals">School Meals</a>
+                    <a href="#clubs">School Clubs</a>
+                    <a href="#attendance">Attendance</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#safeguarding">Safeguarding ▾</a>
+                <div class="dropdown-content">
+                    <a href="#cp-safeguarding">Child Protection and Safeguarding</a>
+                    <a href="#online-safety">Online Safeguarding</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#church">Church</a>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#contact">Contact Us</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <main class="container">
+        
+        <div class="page-header">
+            <h1>Our Staff</h1>
+            <p>Meet the dedicated team working to provide a nurturing and holistic education for every child at St. Eanswythe's.</p>
+        </div>
+
+        <!-- Leadership Team -->
+        <section class="staff-section">
+            <h2 class="staff-category-title">Senior Leadership Team</h2>
+            <div class="staff-grid">
+                
+                <div class="staff-card">
+                    <div class="staff-name">Mrs Jacobs</div>
+                    <div class="staff-role">Headteacher</div>
+                </div>
+                
+                <div class="staff-card">
+                    <div class="staff-name">[Name Here]</div>
+                    <div class="staff-role">Deputy Headteacher</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Teaching Staff -->
+        <section class="staff-section">
+            <h2 class="staff-category-title">Teaching Staff</h2>
+            <div class="staff-grid">
+                
+                <div class="staff-card">
+                    <div class="staff-name">[Name Here]</div>
+                    <div class="staff-role">Class R Teacher</div>
+                </div>
+                
+                <div class="staff-card">
+                    <div class="staff-name">[Name Here]</div>
+                    <div class="staff-role">Class 1 Teacher</div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-name">[Name Here]</div>
+                    <div class="staff-role">Class 2 Teacher</div>
+                </div>
+
+                <div class="staff-card">
+                    <div class="staff-name">[Name Here]</div>
+                    <div class="staff-role">Class 3 Teacher</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Support Staff -->
+        <section class="staff-section">
+            <h2 class="staff-category-title">Support Staff</h2>
+            <div class="staff-grid">
+                
+                <div class="staff-card">
+                    <div class="staff-name">[Name Here]</div>
+                    <div class="staff-role">Teaching Assistant</div>
+                </div>
+                
+                <div class="staff-card">
+                    <div class="staff-name">[Name Here]</div>
+                    <div class="staff-role">Office Manager</div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-text">
+                <p><strong>St. Eanswythe's Primary School</strong></p>
+                <p>Church Street, Folkestone, Kent. CT20 1SE</p>
+                <p>Tel: 01303 255516 | Email: office@st-eanswythes.kent.sch.uk</p>
+                <p style="margin-top: 1rem; font-size: 0.8em; color: #a0aec0;">&copy; 2026 St. Eanswythe's School. All rights reserved.</p>
+            </div>
+            
+            <div class="footer-buttons">
+                <a href="https://www.ceop.police.uk/ceop-reporting/" target="_blank">
+                    <img src="home/images/ceop-button.png" alt="CEOP Reporting" class="footer-btn">
+                </a>
+                <a href="https://login.arbor.sc/" target="_blank">
+                    <img src="home/images/arbor-button.png" alt="Arbor Login" class="footer-btn">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner HTML -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use essential cookies to make our site work. We'd also like to set optional cookies to help us improve it. <a href="policies.html">Read our Cookie Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn accept-btn">Accept</button>
+            <button id="decline-cookies" class="cookie-btn decline-btn">Decline</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Toggle the main menu visibility on mobile
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Handle the accordion dropdown logic
+            dropdowns.forEach(dropdown => {
+                const triggerLink = dropdown.querySelector('a');
+                const content = dropdown.querySelector('.dropdown-content');
+
+                if (content) {
+                    triggerLink.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault(); 
+
+                            document.querySelectorAll('.dropdown-content').forEach(menu => {
+                                if (menu !== content) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+
+                            content.classList.toggle('show');
+                        }
+                    });
+                }
+            });
+
+            // Cookie Banner Logic
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const declineBtn = document.getElementById('decline-cookies');
+
+            if (!localStorage.getItem('cookieChoice')) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieChoice', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieChoice', 'declined');
+                cookieBanner.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
