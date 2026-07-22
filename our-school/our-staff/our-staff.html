@@ -200,7 +200,7 @@
 
         /* Main Layout */
         .container {
-            max-width: 1100px;
+            max-width: 1000px; /* Slightly narrower for a clean list layout */
             margin: 0 auto;
             padding: 2rem;
         }
@@ -218,54 +218,71 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Staff Grid Layout */
-        .staff-section {
-            margin-bottom: 3rem;
+        /* Staff List Layout */
+        .staff-panel {
             background: white;
-            padding: 2rem;
+            padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(34, 49, 108, 0.1);
+            box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
+            margin-bottom: 3rem;
         }
 
-        .staff-category-title {
+        .staff-group {
+            margin-bottom: 2.5rem;
+        }
+        
+        .staff-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .staff-group h3 {
             color: #C02C21;
+            font-size: 1.5rem;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .staff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
+        .staff-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .staff-card {
-            background: #fdf5f5;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-top: 4px solid #22316C;
-            text-align: center;
-            transition: transform 0.2s ease;
+        .staff-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f4f8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .staff-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
+        .staff-list li:last-child {
+            border-bottom: none;
         }
 
         .staff-name {
+            font-weight: 600;
             color: #22316C;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
         }
 
-        .staff-role {
+        .staff-role-label {
             color: #4a5568;
             font-size: 0.95rem;
+            text-align: right;
             font-weight: 500;
+        }
+
+        /* Multicolumn list for generic roles like Teachers and TAs */
+        .multicolumn-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            column-gap: 3rem;
+        }
+
+        .multicolumn-list li {
+            display: block; /* Overrides the flex layout for single names */
         }
 
         /* Footer */
@@ -473,6 +490,23 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             }
 
+            /* Mobile Staff List Updates */
+            .staff-panel {
+                padding: 1.5rem;
+            }
+            
+            .staff-list:not(.multicolumn-list) li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .staff-role-label {
+                text-align: left;
+                margin-top: 0.25rem;
+                font-size: 0.9rem;
+                color: #718096;
+            }
+
             /* Mobile Footer Updates */
             .footer-container {
                 flex-direction: column;
@@ -604,70 +638,127 @@
             <p>Meet the dedicated team working to provide a nurturing and holistic education for every child at St. Eanswythe's.</p>
         </div>
 
-        <!-- Leadership Team -->
-        <section class="staff-section">
-            <h2 class="staff-category-title">Senior Leadership Team</h2>
-            <div class="staff-grid">
-                
-                <div class="staff-card">
-                    <div class="staff-name">Mrs Jacobs</div>
-                    <div class="staff-role">Headteacher</div>
-                </div>
-                
-                <div class="staff-card">
-                    <div class="staff-name">[Name Here]</div>
-                    <div class="staff-role">Deputy Headteacher</div>
-                </div>
-
+        <div class="staff-panel">
+            
+            <!-- Leadership Team -->
+            <div class="staff-group">
+                <h3>Leadership</h3>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Mrs C Jacobs</span>
+                        <span class="staff-role-label">Headteacher</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs J Price</span>
+                        <span class="staff-role-label">Assistant Headteacher & Designated Safeguarding Lead</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mr N Brinkley</span>
+                        <span class="staff-role-label">Assistant Headteacher</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs L Thompson</span>
+                        <span class="staff-role-label">Special Educational Needs Coordinator (SENCO)</span>
+                    </li>
+                </ul>
             </div>
-        </section>
 
-        <!-- Teaching Staff -->
-        <section class="staff-section">
-            <h2 class="staff-category-title">Teaching Staff</h2>
-            <div class="staff-grid">
-                
-                <div class="staff-card">
-                    <div class="staff-name">[Name Here]</div>
-                    <div class="staff-role">Class R Teacher</div>
-                </div>
-                
-                <div class="staff-card">
-                    <div class="staff-name">[Name Here]</div>
-                    <div class="staff-role">Class 1 Teacher</div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-name">[Name Here]</div>
-                    <div class="staff-role">Class 2 Teacher</div>
-                </div>
-
-                <div class="staff-card">
-                    <div class="staff-name">[Name Here]</div>
-                    <div class="staff-role">Class 3 Teacher</div>
-                </div>
-
+            <!-- Teachers -->
+            <div class="staff-group">
+                <h3>Teachers</h3>
+                <ul class="staff-list multicolumn-list">
+                    <li><span class="staff-name">Mr S O'Neon / Mrs G Purver</span></li>
+                    <li><span class="staff-name">Mrs C Laidlow</span></li>
+                    <li><span class="staff-name">Mrs S Honzik</span></li>
+                    <li><span class="staff-name">Mrs A Edgar</span></li>
+                    <li><span class="staff-name">Miss S Giles</span></li>
+                    <li><span class="staff-name">Miss J Willson / Mr N Brinkley</span></li>
+                    <li><span class="staff-name">Mrs J Buchanan</span></li>
+                    <li><span class="staff-name">Mrs K Hines</span></li>
+                    <li><span class="staff-name">Mrs S Hume</span></li>
+                </ul>
             </div>
-        </section>
 
-        <!-- Support Staff -->
-        <section class="staff-section">
-            <h2 class="staff-category-title">Support Staff</h2>
-            <div class="staff-grid">
-                
-                <div class="staff-card">
-                    <div class="staff-name">[Name Here]</div>
-                    <div class="staff-role">Teaching Assistant</div>
-                </div>
-                
-                <div class="staff-card">
-                    <div class="staff-name">[Name Here]</div>
-                    <div class="staff-role">Office Manager</div>
-                </div>
-
+            <!-- Teaching Assistants -->
+            <div class="staff-group">
+                <h3>Teaching Assistants</h3>
+                <ul class="staff-list multicolumn-list">
+                    <li><span class="staff-name">Mrs K Reeve</span></li>
+                    <li><span class="staff-name">Ms G Chamberlain</span></li>
+                    <li><span class="staff-name">Miss M Hayward</span></li>
+                    <li><span class="staff-name">Mrs H McAllister</span></li>
+                    <li><span class="staff-name">Mrs L Gerbino</span></li>
+                    <li><span class="staff-name">Mrs J Lound</span></li>
+                    <li><span class="staff-name">Mrs C Crockford</span></li>
+                    <li><span class="staff-name">Mrs H Thomson</span></li>
+                    <li><span class="staff-name">Mrs J Humphreys</span></li>
+                    <li><span class="staff-name">Mrs A Giles</span></li>
+                    <li><span class="staff-name">Miss Y Martin</span></li>
+                </ul>
             </div>
-        </section>
 
+            <!-- Pastoral & Family Support -->
+            <div class="staff-group">
+                <h3>Pastoral & Family Support</h3>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Mrs K Adlington</span>
+                        <span class="staff-role-label">Family Support Lead</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs K Semple</span>
+                        <span class="staff-role-label">Pastoral Lead</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Office & Premises -->
+            <div class="staff-group">
+                <h3>Office & Premises</h3>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Tracy Arnald</span>
+                        <span class="staff-role-label">School Business Manager</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Miss T Thompson</span>
+                        <span class="staff-role-label">Office Staff</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs S Moody</span>
+                        <span class="staff-role-label">Office Staff</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mr J Hutchison</span>
+                        <span class="staff-role-label">Caretaker</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Catering & Midday Supervision -->
+            <div class="staff-group">
+                <h3>Catering & Midday Supervision</h3>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Mrs A Davison</span>
+                        <span class="staff-role-label">Catering Manager</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs S Ford</span>
+                        <span class="staff-role-label">Lunchtime Kitchen Assistant</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs J McGourty</span>
+                        <span class="staff-role-label">Midday Supervisor</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mr P Wick</span>
+                        <span class="staff-role-label">Midday Supervisor</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
     </main>
 
     <footer>
