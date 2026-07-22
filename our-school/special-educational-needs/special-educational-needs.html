@@ -208,7 +208,7 @@
 
         /* Main Layout */
         .container {
-            max-width: 1000px; 
+            max-width: 1100px; 
             margin: 0 auto;
             padding: 2rem;
         }
@@ -226,7 +226,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Content Panels */
+        /* Content Panels & Sidebar Layout */
         .content-panel {
             background: white;
             padding: 2.5rem 3rem 3rem 3rem; 
@@ -235,11 +235,32 @@
             margin-bottom: 3rem;
         }
 
-        .intro-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #2d3748;
-            margin-bottom: 2rem;
+        .layout-with-sidebar {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .main-text {
+            flex: 1;
+        }
+
+        .sidebar-links {
+            width: 320px;
+            flex-shrink: 0;
+            background-color: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid #C02C21;
+            box-shadow: 0 2px 4px rgba(34, 49, 108, 0.05);
+        }
+
+        .sidebar-links h3 {
+            font-size: 1.2rem;
+            color: #22316C;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
         }
 
         /* Content Sections */
@@ -265,13 +286,11 @@
             margin-bottom: 1rem;
         }
 
-        /* Document Links */
-        .doc-links {
+        /* Document Links - Vertical for Sidebar */
+        .doc-links.vertical-links {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
-            margin-bottom: 2.5rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
         }
         
         .doc-btn {
@@ -279,12 +298,15 @@
             align-items: center;
             background-color: #C02C21;
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.95rem;
             transition: background-color 0.3s, transform 0.2s;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            justify-content: flex-start;
         }
         
         .doc-btn:hover {
@@ -294,7 +316,7 @@
         }
         
         .doc-btn svg {
-            margin-right: 0.5rem;
+            margin-right: 0.8rem;
             fill: currentColor;
             flex-shrink: 0;
         }
@@ -518,14 +540,14 @@
             .content-panel {
                 padding: 1.5rem;
             }
-            
-            .doc-links {
+
+            .layout-with-sidebar {
                 flex-direction: column;
+                gap: 2rem;
             }
-            
-            .doc-btn {
+
+            .sidebar-links {
                 width: 100%;
-                justify-content: flex-start;
             }
 
             /* Mobile Footer Updates */
@@ -660,68 +682,75 @@
             <h1>Special Educational Needs</h1>
         </div>
 
-        <div class="content-panel">
+        <div class="content-panel layout-with-sidebar">
             
-            <div class="doc-links" style="margin-bottom: 2rem;">
-                <a href="documents/whole-school-provision-map.pdf" target="_blank" class="doc-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                    </svg>
-                    Whole School Provision Map
-                </a>
-                <a href="documents/st-eanswythes-school-provision-map.pdf" target="_blank" class="doc-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                    </svg>
-                    St Eanswythe's School Provision Map
-                </a>
-                <a href="documents/send-information-report-2026-27.pdf" target="_blank" class="doc-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                    </svg>
-                    SEND Information Report 2026-27
-                </a>
-                <a href="documents/glossary-of-sen.pdf" target="_blank" class="doc-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                    </svg>
-                    Glossary of SEN
-                </a>
-                <a href="documents/mainstream-core-standards.pdf" target="_blank" class="doc-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                    </svg>
-                    Mainstream Core Standards
-                </a>
-                <a href="documents/core-standards-parent-guide.pdf" target="_blank" class="doc-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                    </svg>
-                    Core Standards (Parent Guide)
-                </a>
-                <a href="https://www.kent.gov.uk/education-and-children/special-educational-needs-and-disabilities/about-the-send-local-offer" target="_blank" class="doc-btn ext-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                    </svg>
-                    Kent SEND Local Offer
-                </a>
+            <!-- Main Text Column (Left Side) -->
+            <div class="main-text">
+                <div class="content-group">
+                    <h3>SEND at St Eanswythe’s</h3>
+                    <p>We pride ourselves on our caring ethos. We foster an environment where every child matters. We have a child centred curriculum that encourages children to be independent and learn skills that are going to benefit them throughout their lives. We have an open door policy that encourages parents to come and talk to us regarding their children’s progress.</p>
+                    <p>We believe everyone is unique. We believe all children are capable and extraordinary. We celebrate diversity and the richness it brings to the school community and encourage the children to do the same. We are committed to giving all of our children every opportunity to achieve the highest of standards. We do this by taking account of pupils’ varied life experiences and needs. We offer a broad and balanced curriculum and have high expectations for all children. The achievements, attitudes and well-being of all our children matter. Our school aims to be an inclusive school. We actively seek to remove the barriers to learning and participation that can hinder or exclude individual pupils, or groups of pupils. This means that equality of opportunity must be a reality for our children.</p>
+                    <p>At St Eanswythe’s Primary we strive to ensure every pupil’s needs are clearly identified and supported at all levels. Quality first teaching with targeted interventions are used to support misconceptions and enhance learning on a daily basis. Teachers provide differentiated learning opportunities for all the children within our school and provide materials appropriate to children’s interests and abilities.</p>
+                    <p>Teaching assistants are deployed very effectively in all classes to work with all pupils, either in small groups or on a one-to-one basis. If a more specific support programme is required, interventions are planned with the teacher and SEND team. The progress within this intervention is closely monitored in order to ensure pupil’s learning is on track. At times more specialised support programmes are required and we work closely with a range of professionals to support a variety of needs. These professionals include Educational Psychologists, Community Paediatricians, Speech therapists, Physiotherapists, Occupational therapists and Specialised teachers in behaviour, learning difficulties and ASC.</p>
+                    <p>As a school we endeavour to support and to develop children’s emotional, social and physical well-being. Our SEND team is supported by our Family Support Lead and Pastoral Lead. We have staff trained in counselling, play therapy, youth mental health first aid and mindfulness.</p>
+                    <p>The school follows the SEND Code of Practice and ensures assessments take place to support statutory assessments. Pupils on the SEND register and with Education Health Care Plans and High Needs Funding are supported closely within school to allow them to develop academically, emotionally and socially.</p>
+                    <p>St Eanswythe’s supports the Local Offer and works closely with Parents and Carers of children and young people with special educational needs and disability, to ensure a range of specialist or targeted service providers are available.</p>
+                </div>
+
+                <div class="content-group">
+                    <h3>Speech, language and communication support</h3>
+                    <p>Our school works to support speech, language and communication with support from our NHS link speech & language therapist Katie Gunne as well as specialist teachers. Your child may come into contact with Katie Gunne within their classroom or around school. The SENCo Louise Thompson will have regular meetings with Katie Gunne to discuss our school’s provision. If you have any concerns about your child’s speech, language or communication skills, please speak to your child’s class teacher in the first instance. If we have discussed a specific concern with you about your child’s speech, language or communication, or you have raised a concern, we will decide together whether to discuss this with our link therapist. You will be kept informed of any plans to support your child.</p>
+                </div>
             </div>
 
-            <div class="content-group">
-                <h3>SEND at St Eanswythe’s</h3>
-                <p>We pride ourselves on our caring ethos. We foster an environment where every child matters. We have a child centred curriculum that encourages children to be independent and learn skills that are going to benefit them throughout their lives. We have an open door policy that encourages parents to come and talk to us regarding their children’s progress.</p>
-                <p>We believe everyone is unique. We believe all children are capable and extraordinary. We celebrate diversity and the richness it brings to the school community and encourage the children to do the same. We are committed to giving all of our children every opportunity to achieve the highest of standards. We do this by taking account of pupils’ varied life experiences and needs. We offer a broad and balanced curriculum and have high expectations for all children. The achievements, attitudes and well-being of all our children matter. Our school aims to be an inclusive school. We actively seek to remove the barriers to learning and participation that can hinder or exclude individual pupils, or groups of pupils. This means that equality of opportunity must be a reality for our children.</p>
-                <p>At St Eanswythe’s Primary we strive to ensure every pupil’s needs are clearly identified and supported at all levels. Quality first teaching with targeted interventions are used to support misconceptions and enhance learning on a daily basis. Teachers provide differentiated learning opportunities for all the children within our school and provide materials appropriate to children’s interests and abilities.</p>
-                <p>Teaching assistants are deployed very effectively in all classes to work with all pupils, either in small groups or on a one-to-one basis. If a more specific support programme is required, interventions are planned with the teacher and SEND team. The progress within this intervention is closely monitored in order to ensure pupil’s learning is on track. At times more specialised support programmes are required and we work closely with a range of professionals to support a variety of needs. These professionals include Educational Psychologists, Community Paediatricians, Speech therapists, Physiotherapists, Occupational therapists and Specialised teachers in behaviour, learning difficulties and ASC.</p>
-                <p>As a school we endeavour to support and to develop children’s emotional, social and physical well-being. Our SEND team is supported by our Family Support Lead and Pastoral Lead. We have staff trained in counselling, play therapy, youth mental health first aid and mindfulness.</p>
-                <p>The school follows the SEND Code of Practice and ensures assessments take place to support statutory assessments. Pupils on the SEND register and with Education Health Care Plans and High Needs Funding are supported closely within school to allow them to develop academically, emotionally and socially.</p>
-                <p>St Eanswythe’s supports the Local Offer and works closely with Parents and Carers of children and young people with special educational needs and disability, to ensure a range of specialist or targeted service providers are available.</p>
-            </div>
-
-            <div class="content-group">
-                <h3>Speech, language and communication support</h3>
-                <p>Our school works to support speech, language and communication with support from our NHS link speech & language therapist Katie Gunne as well as specialist teachers. Your child may come into contact with Katie Gunne within their classroom or around school. The SENCo Louise Thompson will have regular meetings with Katie Gunne to discuss our school’s provision. If you have any concerns about your child’s speech, language or communication skills, please speak to your child’s class teacher in the first instance. If we have discussed a specific concern with you about your child’s speech, language or communication, or you have raised a concern, we will decide together whether to discuss this with our link therapist. You will be kept informed of any plans to support your child.</p>
-            </div>
+            <!-- Links Column (Right Side) -->
+            <aside class="sidebar-links">
+                <h3>Useful Documents</h3>
+                <div class="doc-links vertical-links">
+                    <a href="documents/whole-school-provision-map.pdf" target="_blank" class="doc-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Whole School Provision Map
+                    </a>
+                    <a href="documents/st-eanswythes-school-provision-map.pdf" target="_blank" class="doc-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        School Provision Map
+                    </a>
+                    <a href="documents/send-information-report-2026-27.pdf" target="_blank" class="doc-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        SEND Info Report 2026-27
+                    </a>
+                    <a href="documents/glossary-of-sen.pdf" target="_blank" class="doc-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Glossary of SEN
+                    </a>
+                    <a href="documents/mainstream-core-standards.pdf" target="_blank" class="doc-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Mainstream Core Standards
+                    </a>
+                    <a href="documents/core-standards-parent-guide.pdf" target="_blank" class="doc-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        Core Standards (Parents)
+                    </a>
+                    <a href="https://www.kent.gov.uk/education-and-children/special-educational-needs-and-disabilities/about-the-send-local-offer" target="_blank" class="doc-btn ext-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                        </svg>
+                        Kent SEND Local Offer
+                    </a>
+                </div>
+            </aside>
             
         </div>
     </main>
