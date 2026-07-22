@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Staff - St. Eanswythe's</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="home/images/stelogo.png">
+    <!-- Favicon (Path Updated) -->
+    <link rel="icon" type="image/png" href="../../home/images/stelogo.png">
 
     <style>
         /* General Reset and Base Styles */
@@ -46,10 +46,18 @@
             display: flex;
             align-items: center;
         }
+        .logo-link {
+            display: block;
+            margin-right: 2rem;
+            transition: transform 0.2s ease;
+        }
+        .logo-link:hover {
+            transform: scale(1.02);
+        }
         .header-logo {
             max-width: 140px; 
             height: auto;
-            margin-right: 2rem; 
+            display: block;
         }
         .header-text {
             text-align: left;
@@ -200,7 +208,7 @@
 
         /* Main Layout */
         .container {
-            max-width: 1000px; /* Slightly narrower for a clean list layout */
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -274,7 +282,7 @@
             font-weight: 500;
         }
 
-        /* Multicolumn list for generic roles like Teachers and TAs */
+        /* Multicolumn list for generic roles like TAs */
         .multicolumn-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -282,7 +290,7 @@
         }
 
         .multicolumn-list li {
-            display: block; /* Overrides the flex layout for single names */
+            display: block; 
         }
 
         /* Footer */
@@ -415,8 +423,10 @@
                 width: 100%;
                 margin-bottom: 1.5rem;
             }
-            .header-logo {
+            .logo-link {
                 margin: 0 0 1rem 0; 
+            }
+            .header-logo {
                 max-width: 110px;
                 display: block;
             }
@@ -538,7 +548,9 @@
 
     <header>
         <div class="header-left">
-            <img src="home/images/stelogo.png" alt="St. Eanswythe's School Logo" class="header-logo">
+            <a href="../../index.html" class="logo-link" title="Go to homepage">
+                <img src="../../home/images/stelogo.png" alt="St. Eanswythe's School Logo" class="header-logo">
+            </a>
             <div class="header-text">
                 <h1>St. Eanswythe's</h1>
                 <p class="subtitle">Church of England Primary School</p>
@@ -570,7 +582,7 @@
                 <a href="#our-school">Our School ▾</a>
                 <div class="dropdown-content">
                     <a href="#vision">Our Christian Vision</a>
-                    <a href="staff.html">Our Staff</a>
+                    <a href="our-staff.html">Our Staff</a>
                     <a href="#admissions">Admissions</a>
                     <a href="#governors">Governors</a>
                     <a href="policies.html">Policies</a>
@@ -663,19 +675,38 @@
                 </ul>
             </div>
 
-            <!-- Teachers -->
+            <!-- Teachers (Updated) -->
             <div class="staff-group">
                 <h3>Teachers</h3>
-                <ul class="staff-list multicolumn-list">
-                    <li><span class="staff-name">Mr S O'Neon / Mrs G Purver</span></li>
-                    <li><span class="staff-name">Mrs C Laidlow</span></li>
-                    <li><span class="staff-name">Mrs S Honzik</span></li>
-                    <li><span class="staff-name">Mrs A Edgar</span></li>
-                    <li><span class="staff-name">Miss S Giles</span></li>
-                    <li><span class="staff-name">Miss J Willson / Mr N Brinkley</span></li>
-                    <li><span class="staff-name">Mrs J Buchanan</span></li>
-                    <li><span class="staff-name">Mrs K Hines</span></li>
-                    <li><span class="staff-name">Mrs S Hume</span></li>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Mrs J Buchanan</span>
+                        <span class="staff-role-label">Year 6</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs A Edgar</span>
+                        <span class="staff-role-label">Year 5</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mr S O'Neon</span>
+                        <span class="staff-role-label">Year 4</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs G Purver & Mrs C Laidlow</span>
+                        <span class="staff-role-label">Year 3</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Miss S Giles</span>
+                        <span class="staff-role-label">Year 2</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs C Honzik</span>
+                        <span class="staff-role-label">Year 1</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs A Giles</span>
+                        <span class="staff-role-label">Year R</span>
+                    </li>
                 </ul>
             </div>
 
@@ -692,7 +723,6 @@
                     <li><span class="staff-name">Mrs C Crockford</span></li>
                     <li><span class="staff-name">Mrs H Thomson</span></li>
                     <li><span class="staff-name">Mrs J Humphreys</span></li>
-                    <li><span class="staff-name">Mrs A Giles</span></li>
                     <li><span class="staff-name">Miss Y Martin</span></li>
                 </ul>
             </div>
@@ -772,10 +802,10 @@
             
             <div class="footer-buttons">
                 <a href="https://www.ceop.police.uk/ceop-reporting/" target="_blank">
-                    <img src="home/images/ceop-button.png" alt="CEOP Reporting" class="footer-btn">
+                    <img src="../../home/images/ceop-button.png" alt="CEOP Reporting" class="footer-btn">
                 </a>
                 <a href="https://login.arbor.sc/" target="_blank">
-                    <img src="home/images/arbor-button.png" alt="Arbor Login" class="footer-btn">
+                    <img src="../../home/images/arbor-button.png" alt="Arbor Login" class="footer-btn">
                 </a>
             </div>
         </div>
