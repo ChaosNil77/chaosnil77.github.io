@@ -235,90 +235,63 @@
             margin-bottom: 3rem;
         }
 
-        /* Club Layout Styles */
-        .day-group {
-            margin-bottom: 3rem;
-        }
-        
-        .day-group:last-child {
-            margin-bottom: 0;
-        }
-
-        .day-group h2 {
-            border-bottom: 2px solid #C02C21;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            color: #22316C;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-        }
-
-        .club-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .club-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-top: 5px solid #22316C;
+        /* Table Styles */
+        .table-responsive {
+            overflow-x: auto;
             border-radius: 8px;
-            padding: 1.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e2e8f0;
         }
 
-        .club-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(34, 49, 108, 0.1);
+        .clubs-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background-color: #fff;
+            min-width: 700px; /* Ensures it scrolls on mobile rather than squishing */
         }
 
-        .club-title {
-            font-size: 1.3rem;
-            color: #C02C21;
-            font-weight: bold;
-            margin-bottom: 0.2rem;
+        .clubs-table thead {
+            background-color: #22316C;
+            color: white;
         }
 
-        .club-instructor {
-            font-style: italic;
-            color: #718096;
-            margin-bottom: 1.2rem;
-            font-size: 0.95rem;
+        .clubs-table th, 
+        .clubs-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .club-detail {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px dashed #cbd5e0;
-            font-size: 0.95rem;
-        }
-
-        .club-detail:last-of-type {
-            border-bottom: none;
-        }
-
-        .club-detail span:first-child {
+        .clubs-table th {
             font-weight: 600;
-            color: #2d3748;
-            margin-right: 1rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
 
-        .club-detail span:last-child {
+        .clubs-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .clubs-table tbody tr:hover {
+            background-color: #edf2f7;
+        }
+
+        .clubs-table td {
             color: #4a5568;
-            text-align: right;
+            font-size: 0.95rem;
+        }
+
+        .clubs-table td strong {
+            color: #C02C21;
         }
 
         .club-note {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background-color: #fffaf0;
-            border-left: 3px solid #ed8936;
-            font-size: 0.85rem;
-            color: #c05621;
-            border-radius: 0 4px 4px 0;
+            display: block;
+            font-size: 0.8rem;
+            color: #718096;
+            margin-top: 0.2rem;
+            font-style: italic;
         }
 
         /* Footer */
@@ -527,9 +500,6 @@
             .content-panel {
                 padding: 1.5rem;
             }
-            .club-grid {
-                grid-template-columns: 1fr;
-            }
 
             .footer-container {
                 flex-direction: column;
@@ -662,179 +632,149 @@
         </div>
 
         <div class="content-panel">
+            
+            <div class="table-responsive">
+                <table class="clubs-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Club</th>
+                            <th>Instructor</th>
+                            <th>Year Group</th>
+                            <th>Commences</th>
+                            <th>Spaces</th>
+                            <th>Start</th>
+                            <th>End</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Monday -->
+                        <tr>
+                            <td><strong>Monday</strong></td>
+                            <td>Athletics Club</td>
+                            <td>Mrs Price</td>
+                            <td>Years 5 & 6</td>
+                            <td>w/b 5/1/26</td>
+                            <td>20</td>
+                            <td>15:10</td>
+                            <td>16:15</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monday</strong></td>
+                            <td>Chess Club</td>
+                            <td>Matthew Cussens</td>
+                            <td>Years 2, 3, 4, 5 & 6</td>
+                            <td>w/b 5/1/26</td>
+                            <td>20</td>
+                            <td>15:10</td>
+                            <td>16:10</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monday</strong></td>
+                            <td>
+                                French Club
+                                <span class="club-note">(See flyer for booking info)</span>
+                            </td>
+                            <td>BilinguaSing</td>
+                            <td>Years R, 1, 2 & 3</td>
+                            <td>w/b 12/1/26</td>
+                            <td>10</td>
+                            <td>15:10</td>
+                            <td>16:00</td>
+                        </tr>
+                        
+                        <!-- Tuesday -->
+                        <tr>
+                            <td><strong>Tuesday</strong></td>
+                            <td>Chess Club</td>
+                            <td>Matthew Cussens</td>
+                            <td>Years 2, 3, 4, 5 & 6</td>
+                            <td>w/b 5/1/26</td>
+                            <td>20</td>
+                            <td>15:10</td>
+                            <td>16:10</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuesday</strong></td>
+                            <td>Art Club</td>
+                            <td>Mrs Edgar</td>
+                            <td>Years 3 & 4</td>
+                            <td>w/b 5/1/26</td>
+                            <td>15</td>
+                            <td>15:10</td>
+                            <td>16:15</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuesday</strong></td>
+                            <td>Coastal Kids</td>
+                            <td>Mrs Hume</td>
+                            <td>Years 1 & 2</td>
+                            <td>w/b 5/1/26</td>
+                            <td>30</td>
+                            <td>15:10</td>
+                            <td>16:00</td>
+                        </tr>
 
-            <!-- Monday -->
-            <div class="day-group">
-                <h2>Monday</h2>
-                <div class="club-grid">
-                    
-                    <div class="club-card">
-                        <div class="club-title">Athletics Club</div>
-                        <div class="club-instructor">Mrs Price</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 5 & 6</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£2.00 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>20 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Playground</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.15pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
+                        <!-- Wednesday -->
+                        <tr>
+                            <td><strong>Wednesday</strong></td>
+                            <td>
+                                KS2 Dance Club
+                                <span class="club-note">(Same children for Terms 3 & 4)</span>
+                            </td>
+                            <td>James Middleton</td>
+                            <td>Years 2, 3, 4, 5 & 6</td>
+                            <td>w/b 5/1/26</td>
+                            <td>20</td>
+                            <td>15:10</td>
+                            <td>16:15</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wednesday</strong></td>
+                            <td>Scrapbook Club</td>
+                            <td>Mrs Buchanan</td>
+                            <td>Years 5 & 6</td>
+                            <td>w/b 5/1/26</td>
+                            <td>15</td>
+                            <td>15:10</td>
+                            <td>16:00</td>
+                        </tr>
 
-                    <div class="club-card">
-                        <div class="club-title">Chess Club</div>
-                        <div class="club-instructor">Matthew Cussens</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 2, 3, 4, 5 & 6</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£3.00 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>20 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Year 4</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.10pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
+                        <!-- Thursday -->
+                        <tr>
+                            <td><strong>Thursday</strong></td>
+                            <td>Lighting the Candle</td>
+                            <td>Mrs A & Father Chris</td>
+                            <td>Years 4, 5 & 6</td>
+                            <td>w/b 5/1/26</td>
+                            <td>20</td>
+                            <td>15:10</td>
+                            <td>16:15</td>
+                        </tr>
 
-                    <div class="club-card">
-                        <div class="club-title">French Club</div>
-                        <div class="club-instructor">BilinguaSing</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years R, 1, 2 & 3</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 12/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£5 per week (11 wks = £59)</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>10 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Year 1</span></div>
-                        <div class="club-detail"><span>Time:</span><span>3.00pm - 4.00pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                        <div class="club-note">See flyer for booking info.</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Tuesday -->
-            <div class="day-group">
-                <h2>Tuesday</h2>
-                <div class="club-grid">
-                    
-                    <div class="club-card">
-                        <div class="club-title">Chess Club</div>
-                        <div class="club-instructor">Matthew Cussens</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 2, 3, 4, 5 & 6</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£3.00 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>20 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Year 4</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.10pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
-
-                    <div class="club-card">
-                        <div class="club-title">Art Club</div>
-                        <div class="club-instructor">Mrs Edgar</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 3 & 4</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£2.00 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>15 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Year 3</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.15pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
-
-                    <div class="club-card">
-                        <div class="club-title">Coastal Kids</div>
-                        <div class="club-instructor">Mrs Hume</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 1 & 2</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£2.00 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>30 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Hall</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.00pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Wednesday -->
-            <div class="day-group">
-                <h2>Wednesday</h2>
-                <div class="club-grid">
-                    
-                    <div class="club-card">
-                        <div class="club-title">KS2 Dance Club</div>
-                        <div class="club-instructor">James Middleton</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 2, 3, 4, 5 & 6</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£3.00 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>20 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Hall</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.15pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                        <div class="club-note">Same children for Terms 3 & 4</div>
-                    </div>
-
-                    <div class="club-card">
-                        <div class="club-title">Scrapbook Club</div>
-                        <div class="club-instructor">Mrs Buchanan</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 5 & 6</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£2.00 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>15 children</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Year 6</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.00pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Thursday -->
-            <div class="day-group">
-                <h2>Thursday</h2>
-                <div class="club-grid">
-                    
-                    <div class="club-card">
-                        <div class="club-title">Lighting the candle</div>
-                        <div class="club-instructor">Mrs A and Father Chris</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 4, 5 & 6</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>Free</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>20 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Year 4 (and Church)</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.15pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Friday -->
-            <div class="day-group">
-                <h2>Friday</h2>
-                <div class="club-grid">
-                    
-                    <div class="club-card">
-                        <div class="club-title">Football</div>
-                        <div class="club-instructor">Harry Nunn</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Years 4, 5 & 6</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£2.50 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>20 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Playground / Hall</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.15pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
-
-                    <div class="club-card">
-                        <div class="club-title">Mini-Movers Dance</div>
-                        <div class="club-instructor">Ducklings & Year 1</div>
-                        <div class="club-detail"><span>Year Group:</span><span>Ducklings & Year 1</span></div>
-                        <div class="club-detail"><span>Commences:</span><span>w/b 5/1/26</span></div>
-                        <div class="club-detail"><span>Cost:</span><span>£3.00 per session</span></div>
-                        <div class="club-detail"><span>Spaces:</span><span>20 spaces</span></div>
-                        <div class="club-detail"><span>Location:</span><span>Hall</span></div>
-                        <div class="club-detail"><span>Finish Time:</span><span>4.00pm</span></div>
-                        <div class="club-detail"><span>Exit:</span><span>Front entrance</span></div>
-                    </div>
-
-                </div>
+                        <!-- Friday -->
+                        <tr>
+                            <td><strong>Friday</strong></td>
+                            <td>Football</td>
+                            <td>Harry Nunn</td>
+                            <td>Years 4, 5 & 6</td>
+                            <td>w/b 5/1/26</td>
+                            <td>20</td>
+                            <td>15:10</td>
+                            <td>16:15</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Friday</strong></td>
+                            <td>Mini-Movers Dance</td>
+                            <td>Ducklings & Year 1</td>
+                            <td>Ducklings & Year 1</td>
+                            <td>w/b 5/1/26</td>
+                            <td>20</td>
+                            <td>15:10</td>
+                            <td>16:00</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
         </div>
