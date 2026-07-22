@@ -254,31 +254,35 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        .content-list {
-            list-style: none;
-            padding: 0;
-        }
 
-        .content-list li {
-            background-color: #f8fafc;
-            margin-bottom: 1rem;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #22316C;
+        .content-group p {
             color: #4a5568;
             line-height: 1.7;
-            display: flex;
-            align-items: center;
+            font-size: 1.05rem;
         }
 
-        .content-list li strong {
+        .content-group p strong {
+            color: #C02C21;
+        }
+        
+        /* Single Block Styling for Dates */
+        .term-dates-block {
+            background-color: #f8fafc;
+            border-left: 4px solid #22316C;
+            border-radius: 8px;
+            padding: 1.8rem;
+            color: #4a5568;
+            line-height: 2;
+            font-size: 1.05rem;
+        }
+
+        .term-dates-block strong {
             display: inline-block;
             color: #C02C21;
             font-size: 1.1rem;
             text-transform: uppercase;
-            min-width: 150px; /* Aligns the data consistently */
-            margin-right: 1rem;
+            min-width: 140px; 
+            margin-right: 0.5rem;
         }
 
         /* Button Styling */
@@ -515,16 +519,15 @@
                 padding: 1.5rem;
             }
 
-            .content-list li {
-                flex-direction: column;
-                align-items: flex-start;
+            .term-dates-block {
                 padding: 1.2rem;
             }
 
-            .content-list li strong {
-                margin-bottom: 0.3rem;
+            .term-dates-block strong {
+                display: block;
+                margin-bottom: 0.2rem;
             }
-
+            
             .footer-container {
                 flex-direction: column;
             }
@@ -660,26 +663,22 @@
             <!-- Our School Day -->
             <div class="content-group">
                 <h2>Our School Day</h2>
-                <ul class="content-list">
-                    <li><strong>Start Time</strong> 08:25 (All Years)</li>
-                    <li><strong>End Time (Year R)</strong> 14:55</li>
-                    <li><strong>End Time (KS1)</strong> 15:00</li>
-                    <li><strong>End Time (KS2)</strong> 15:10</li>
-                </ul>
+                <p>Our school day starts at <strong>08:25</strong> for all year groups. The school day ends at <strong>14:55</strong> for Year R, <strong>15:00</strong> for KS1, and <strong>15:10</strong> for KS2.</p>
             </div>
 
             <!-- Term Dates -->
             <div class="content-group">
                 <h2>Term Dates</h2>
-                <ul class="content-list">
-                    <li><strong>Term One</strong> 2 Sep - 16 Oct</li>
-                    <li><strong>Term Two</strong> 2 Nov - 18 Dec</li>
-                    <li><strong>Term Three</strong> 4 Jan - 11 Feb</li>
-                    <li><strong>Term Four</strong> 22 Feb - 25 Mar</li>
-                    <li><strong>Term Five</strong> 5 Apr - 21 May</li>
-                    <li><strong>Term Six</strong> 7 Jun - 20 Jul</li>
-                    <li><strong>INSET Days</strong> 1 Sep and 12 Feb</li>
-                </ul>
+                
+                <div class="term-dates-block">
+                    <strong>Term One:</strong> 2 Sep - 16 Oct<br>
+                    <strong>Term Two:</strong> 2 Nov - 18 Dec<br>
+                    <strong>Term Three:</strong> 4 Jan - 11 Feb<br>
+                    <strong>Term Four:</strong> 22 Feb - 25 Mar<br>
+                    <strong>Term Five:</strong> 5 Apr - 21 May<br>
+                    <strong>Term Six:</strong> 7 Jun - 20 Jul<br><br>
+                    <strong>INSET Days:</strong> 1 Sep and 12 Feb
+                </div>
                 
                 <div style="margin-top: 2rem;">
                     <a href="term-dates26-27.pdf" target="_blank" class="action-btn" aria-label="Download Term Dates PDF">
