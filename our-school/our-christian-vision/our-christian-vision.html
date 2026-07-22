@@ -229,7 +229,7 @@
         /* Content Panels */
         .content-panel {
             background: white;
-            padding: 3rem;
+            padding: 1.5rem 3rem 3rem 3rem; /* Reduced top padding */
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
             margin-bottom: 3rem;
@@ -240,7 +240,7 @@
             line-height: 1.8;
             color: #2d3748;
             text-align: center;
-            padding: 1rem;
+            padding: 0 1rem 1rem 1rem; /* Removed top padding */
             border-bottom: 2px solid #f0f4f8;
             margin-bottom: 2rem;
         }
@@ -269,11 +269,10 @@
 
         .split-image img {
             max-width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            /* Removed border-radius and box-shadow */
         }
 
-        /* Values Grid */
+        /* Term Values List */
         .values-header {
             text-align: center;
             margin-top: 3rem;
@@ -291,45 +290,48 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+        .term-values-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .value-card {
+        .term-values-list li {
             background: #fdf5f5;
             padding: 1.5rem;
-            border-radius: 8px;
-            border-top: 4px solid #22316C;
-            text-align: center;
+            margin-bottom: 1rem;
+            border-left: 4px solid #C02C21;
+            border-radius: 0 8px 8px 0;
             transition: transform 0.2s ease;
         }
-
-        .value-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
+        
+        .term-values-list li:last-child {
+            margin-bottom: 0;
         }
 
-        .value-title {
+        .term-values-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .term-title {
+            color: #C02C21;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .term-value {
             color: #22316C;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .value-story {
-            color: #C02C21;
-            font-weight: 600;
-            font-size: 1.05rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .value-verse {
+        .term-story {
             color: #4a5568;
-            font-size: 0.95rem;
-            font-style: italic;
-            margin: 0;
+            font-size: 1.05rem;
         }
 
         /* Footer */
@@ -612,63 +614,63 @@
             <li class="dropdown">
                 <a href="#our-school">Our School ▾</a>
                 <div class="dropdown-content">
-                    <a href="our-christian-vision.html">Our Christian Vision</a>
-                    <a href="../our-staff/our-staff.html">Our Staff</a>
-                    <a href="#admissions">Admissions</a>
-                    <a href="#governors">Governors</a>
-                    <a href="../../policies.html">Policies</a>
-                    <a href="#inspections">Inspection Reports and SATs Results</a>
-                    <a href="#pupil-premium">Pupil Premium</a>
-                    <a href="#pe-premium">PE and Sport Premium</a>
-                    <a href="#sen">Special Educational Needs</a>
-                    <a href="#pastoral">Pastoral Care</a>
-                    <a href="#financial">Financial Information and Benchmarking</a>
+                    <a href="../../our-school/our-christian-vision/our-christian-vision.html">Our Christian Vision</a>
+                    <a href="../../our-school/our-staff/our-staff.html">Our Staff</a>
+                    <a href="../../our-school/admissions/admissions.html">Admissions</a>
+                    <a href="../../our-school/governors/governors.html">Governors</a>
+                    <a href="../../our-school/policies/policies.html">Policies</a>
+                    <a href="../../our-school/inspection-reports-and-sats-results/inspection-reports-and-sats-results.html">Inspection Reports and SATs Results</a>
+                    <a href="../../our-school/pupil-premium/pupil-premium.html">Pupil Premium</a>
+                    <a href="../../our-school/pe-sport-premium/pe-sport-premium.html">PE and Sport Premium</a>
+                    <a href="../../our-school/special-educational-needs/special-educational-needs.html">Special Educational Needs</a>
+                    <a href="../../our-school/pastoral-care/pastoral-care.html">Pastoral Care</a>
+                    <a href="../../our-school/financial-info-benchmarking/financial-info-benchmarking.html">Financial Information and Benchmarking</a>
                 </div>
             </li>
             
             <li class="dropdown">
                 <a href="#classes">Classes ▾</a>
                 <div class="dropdown-content">
-                    <a href="#class-newsletters">Class Newsletters</a>
-                    <a href="#class-r">Class R</a>
-                    <a href="#class-1">Class 1</a>
-                    <a href="#class-2">Class 2</a>
-                    <a href="#class-3">Class 3</a>
-                    <a href="#class-4">Class 4</a>
-                    <a href="#class-5">Class 5</a>
-                    <a href="#class-6">Class 6</a>
+                    <a href="../../classes/class-newsletters/class-newsletters.html">Class Newsletters</a>
+                    <a href="../../classes/class-r/class-r.html">Class R</a>
+                    <a href="../../classes/class-1/class-1.html">Class 1</a>
+                    <a href="../../classes/class-2/class-2.html">Class 2</a>
+                    <a href="../../classes/class-3/class-3.html">Class 3</a>
+                    <a href="../../classes/class-4/class-4.html">Class 4</a>
+                    <a href="../../classes/class-5/class-5.html">Class 5</a>
+                    <a href="../../classes/class-6/class-6.html">Class 6</a>
                 </div>
             </li>
             
             <li class="dropdown">
                 <a href="#parents">Parents and Carers ▾</a>
                 <div class="dropdown-content">
-                    <a href="#ptfa">PTFA</a>
-                    <a href="#newsletters">Newsletters</a>
-                    <a href="../../calendar.html">Term Dates</a>
-                    <a href="#uniform">Uniform</a>
-                    <a href="#homework">Homework</a>
-                    <a href="#wraparound">Breakfast and After School Clubs</a>
-                    <a href="#meals">School Meals</a>
-                    <a href="#clubs">School Clubs</a>
-                    <a href="#attendance">Attendance</a>
+                    <a href="../../parents-carers/ptfa/ptfa.html">PTFA</a>
+                    <a href="../../parents-carers/newsletters/newsletters.html">Newsletters</a>
+                    <a href="../../parents-carers/term-dates/term-dates.html">Term Dates</a>
+                    <a href="../../parents-carers/uniform/uniform.html">Uniform</a>
+                    <a href="../../parents-carers/homework/homework.html">Homework</a>
+                    <a href="../../parents-carers/breakfast-after-school-club/breakfast-after-school-club.html">Breakfast and After School Clubs</a>
+                    <a href="../../parents-carers/school-meals/school-meals.html">School Meals</a>
+                    <a href="../../parents-carers/school-clubs/school-clubs.html">School Clubs</a>
+                    <a href="../../parents-carers/attendance/attendance.html">Attendance</a>
                 </div>
             </li>
             
             <li class="dropdown">
                 <a href="#safeguarding">Safeguarding ▾</a>
                 <div class="dropdown-content">
-                    <a href="#cp-safeguarding">Child Protection and Safeguarding</a>
-                    <a href="#online-safety">Online Safeguarding</a>
+                    <a href="../../safeguarding/child-protection-safeguarding/child-protection-safeguarding.html">Child Protection and Safeguarding</a>
+                    <a href="../../safeguarding/online-safeguarding/online-safeguarding.html">Online Safeguarding</a>
                 </div>
             </li>
             
             <li class="dropdown">
-                <a href="#church">Church</a>
+                <a href="../../church/church.html">Church</a>
             </li>
             
             <li class="dropdown">
-                <a href="#contact">Contact Us</a>
+                <a href="../../contact-us/contact-us.html">Contact Us</a>
             </li>
 
         </ul>
@@ -705,50 +707,45 @@
             <!-- School Values Section -->
             <div class="values-header">
                 <h2>Our Six School Values</h2>
-                <p>These core Christian values, rooted deeply in scripture, guide our daily life and interactions at St Eanswythe's.</p>
+                <p>These core Christian values, rooted deeply in scripture, guide our daily life and interactions at St Eanswythe's. We focus on one specific value each term throughout the academic year.</p>
             </div>
             
             <div class="values-image-container">
                 <img src="../../our-school/our-christian-vision/images/values.png" alt="Illustration of our six Christian Values">
             </div>
 
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-title">Generosity</div>
-                    <p class="value-story">The Widow's Gift</p>
-                    <p class="value-verse">Mark 12:41-44</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-title">Compassion</div>
-                    <p class="value-story">The Good Samaritan</p>
-                    <p class="value-verse">Luke 10:25-37</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-title">Honesty</div>
-                    <p class="value-story">The Parable of the Pharisee and the Tax Collector</p>
-                    <p class="value-verse">Luke 18:9-14</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-title">Forgiveness</div>
-                    <p class="value-story">The Prodigal Son</p>
-                    <p class="value-verse">Luke 15:11-32</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-title">Respect</div>
-                    <p class="value-story">Give to Caesar what is Caesar's!</p>
-                    <p class="value-verse">Mark 12:17</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-title">Perseverance</div>
-                    <p class="value-story">The Four Friends</p>
-                    <p class="value-verse">Mark 2:1-12</p>
-                </div>
-            </div>
+            <ul class="term-values-list">
+                <li>
+                    <div class="term-title">Term 1</div>
+                    <div class="term-value">Generosity</div>
+                    <div class="term-story">Focused on the story of <strong>The Widow's Gift</strong> (Mark 12:41-44).</div>
+                </li>
+                <li>
+                    <div class="term-title">Term 2</div>
+                    <div class="term-value">Compassion</div>
+                    <div class="term-story">Focused on the story of <strong>The Good Samaritan</strong> (Luke 10:25-37).</div>
+                </li>
+                <li>
+                    <div class="term-title">Term 3</div>
+                    <div class="term-value">Honesty</div>
+                    <div class="term-story">Focused on <strong>The Parable of the Pharisee and the Tax Collector</strong> (Luke 18:9-14).</div>
+                </li>
+                <li>
+                    <div class="term-title">Term 4</div>
+                    <div class="term-value">Forgiveness</div>
+                    <div class="term-story">Focused on the story of <strong>The Prodigal Son</strong> (Luke 15:11-32).</div>
+                </li>
+                <li>
+                    <div class="term-title">Term 5</div>
+                    <div class="term-value">Respect</div>
+                    <div class="term-story">Focused on the teaching to <strong>Give to Caesar what is Caesar's!</strong> (Mark 12:17).</div>
+                </li>
+                <li>
+                    <div class="term-title">Term 6</div>
+                    <div class="term-value">Perseverance</div>
+                    <div class="term-story">Focused on the story of <strong>The Four Friends</strong> (Mark 2:1-12).</div>
+                </li>
+            </ul>
 
         </div>
     </main>
@@ -775,7 +772,7 @@
 
     <!-- Cookie Banner HTML -->
     <div id="cookie-banner" class="cookie-banner">
-        <p>We use essential cookies to make our site work. We'd also like to set optional cookies to help us improve it. <a href="../../policies.html">Read our Cookie Policy</a>.</p>
+        <p>We use essential cookies to make our site work. We'd also like to set optional cookies to help us improve it. <a href="../../our-school/policies/policies.html">Read our Cookie Policy</a>.</p>
         <div class="cookie-buttons">
             <button id="accept-cookies" class="cookie-btn accept-btn">Accept</button>
             <button id="decline-cookies" class="cookie-btn decline-btn">Decline</button>
