@@ -388,6 +388,74 @@
             transform: scale(1.05);
         }
 
+        /* Cookie Banner Styling */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #22316C;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(100%); /* Hidden off-screen by default */
+            transition: transform 0.4s ease-in-out;
+        }
+        
+        .cookie-banner.show {
+            transform: translateY(0); /* Slides up */
+        }
+        
+        .cookie-banner p {
+            margin: 0;
+            font-size: 0.95rem;
+            flex: 1;
+            padding-right: 2rem;
+            color: white;
+        }
+        
+        .cookie-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .cookie-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .accept-btn {
+            background-color: #C02C21;
+            color: white;
+        }
+        
+        .accept-btn:hover {
+            background-color: #a0241b;
+        }
+        
+        .decline-btn {
+            background-color: white;
+            color: #22316C;
+        }
+        
+        .decline-btn:hover {
+            background-color: #e2e8f0;
+        }
+
         /* Responsive Design - Mobile Styling */
         @media (max-width: 768px) {
             .content-grid {
@@ -397,13 +465,13 @@
             /* Mobile Header Layout */
             header {
                 flex-direction: column;
-                align-items: center; /* Centered */
+                align-items: center; 
                 width: 100%;
                 padding: 1.5rem;
             }
             .header-left {
                 flex-direction: column;
-                align-items: center; /* Centered */
+                align-items: center; 
                 width: 100%;
                 margin-bottom: 1.5rem;
             }
@@ -413,11 +481,11 @@
                 display: block;
             }
             .header-text {
-                text-align: center; /* Centered */
+                text-align: center; 
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                align-items: center; /* Centered */
+                align-items: center; 
             }
             header h1 {
                 font-size: 2.4rem; 
@@ -518,6 +586,21 @@
             .footer-buttons {
                 position: static;
                 margin-top: 1.5rem;
+                justify-content: center;
+            }
+
+            /* Mobile Cookie Banner Layout */
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            .cookie-banner p {
+                padding-right: 0;
+                margin-bottom: 1rem;
+            }
+            .cookie-buttons {
+                width: 100%;
                 justify-content: center;
             }
         }
@@ -664,11 +747,11 @@
                     </li>
                     <li>
                         <span class="date-badge">30th June</span>
-                        Class transition morning
+                        Barn Class transition morning
                     </li>
                     <li>
                         <span class="date-badge">30th June</span>
-                        Stuff happening on this day
+                        8:30am: KA/KS meeting with parent
                     </li>
                     <li>
                         <span class="date-badge">30th June</span>
@@ -699,6 +782,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Banner HTML -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use essential cookies to make our site work. We'd also like to set optional cookies to help us improve it. <a href="policies.html">Read our Cookie Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn accept-btn">Accept</button>
+            <button id="decline-cookies" class="cookie-btn decline-btn">Decline</button>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -735,6 +827,30 @@
                         }
                     });
                 }
+            });
+
+            // Cookie Banner Logic
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const declineBtn = document.getElementById('decline-cookies');
+
+            // Check if the user has already made a choice
+            if (!localStorage.getItem('cookieChoice')) {
+                // Add a small delay so it slides up after the page loads
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            // Save choice and hide banner when buttons are clicked
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieChoice', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieChoice', 'declined');
+                cookieBanner.classList.remove('show');
             });
         });
     </script>
