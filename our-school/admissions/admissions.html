@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - St. Eanswythe's</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../home/images/stelogo.png">
+
+    <style>
+        /* General Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #22316C;
+            background-color: #f9f9f9;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: #C02C21;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Header & Logo */
+        header {
+            background-color: #f9f9f9;
+            color: #22316C;
+            padding: 1.5rem 2rem; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            max-width: 1100px; 
+            margin: 0 auto;    
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .logo-link {
+            display: block;
+            margin-right: 2rem;
+            transition: transform 0.2s ease;
+        }
+        .logo-link:hover {
+            transform: scale(1.02);
+        }
+        .header-logo {
+            max-width: 140px; 
+            height: auto;
+            display: block;
+        }
+        .header-text {
+            text-align: left;
+        }
+        header h1 {
+            color: #C02C21;
+            margin: 0;
+            font-size: 3rem; 
+            line-height: 1.2;
+        }
+        .subtitle {
+            margin: 0.2rem 0 0 0;
+            font-size: 1.5rem; 
+            font-weight: 600;
+        }
+        .strapline {
+            margin: 0;
+            font-style: italic;
+            font-size: 1.05rem;
+        }
+
+        /* Header Search Box */
+        .header-search form {
+            display: flex;
+            align-items: center;
+        }
+        .header-search input[type="text"] {
+            padding: 0.4rem 1rem; 
+            border: 2px solid #C02C21; 
+            border-right: none;
+            border-radius: 20px 0 0 20px; 
+            outline: none;
+            font-size: 0.9rem; 
+            width: 160px; 
+            color: #22316C;
+        }
+        .header-search input[type="text"]:focus {
+            border-color: #22316C; 
+        }
+        .header-search button {
+            padding: 0.4rem 1rem; 
+            background-color: #C02C21; 
+            color: white;
+            border: 2px solid #C02C21;
+            border-radius: 0 20px 20px 0; 
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .header-search button:hover {
+            background-color: #a0241b; 
+            border-color: #a0241b;
+        }
+        .header-search button svg {
+            stroke: currentColor;
+        }
+
+        /* Navigation & Dropdowns */
+        nav {
+            background-color: #C02C21;
+            border-top: 10px solid #22316C;
+            border-bottom: 10px solid #22316C;
+            position: relative;
+        }
+
+        /* Mobile Menu Toggle Button */
+        .mobile-menu-toggle {
+            display: none;
+            background-color: #C02C21;
+            color: white;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 1rem 1.5rem;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown > a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dropdown:hover > a {
+            background-color: #a0241b;
+            color: #fceceb;
+        }
+
+        /* Dropdown Content Box */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #22316C; 
+            min-width: 260px; 
+            box-shadow: 0px 8px 16px 0px rgba(34, 49, 108, 0.25);
+            z-index: 10;
+            border-top: 10px solid #C02C21; 
+            border-radius: 0 0 4px 4px;
+        }
+
+        /* Dropdown Links */
+        .dropdown-content a {
+            color: white; 
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
+            font-size: 0.95em;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #1a224c; 
+            color: white;
+        }
+
+        /* Desktop Hover logic */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 2rem;
+            border-bottom: 4px solid #C02C21;
+            padding-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #22316C;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Content Panels */
+        .content-panel {
+            background: white;
+            padding: 2.5rem 3rem 3rem 3rem; 
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        /* Document Links */
+        .doc-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f4f8;
+        }
+        
+        .doc-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #C02C21;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .doc-btn:hover {
+            background-color: #a0241b;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .doc-btn svg {
+            margin-right: 0.5rem;
+            fill: currentColor;
+        }
+
+        /* Content Sections */
+        .content-group {
+            margin-bottom: 2.5rem;
+        }
+        
+        .content-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-group h3 {
+            color: #22316C;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-group p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .content-group a {
+            color: #C02C21;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .content-group a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background-color: #fdf5f5;
+            border-left: 4px solid #C02C21;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: #22316C;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a224c;
+            color: white;
+            padding: 1.5rem 2rem; 
+            border-top: 3px solid #C02C21;
+            line-height: 1.3; 
+        }
+        
+        .footer-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-text {
+            text-align: center;
+        }
+        .footer-text strong {
+            color: white;
+        }
+        .footer-text p {
+            margin-bottom: 0.3rem; 
+            color: white;
+        }
+
+        .footer-buttons {
+            position: absolute;
+            right: 0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .footer-btn {
+            height: 45px; 
+            width: auto;
+            border-radius: 6px;
+            transition: transform 0.2s ease;
+        }
+        .footer-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Cookie Banner Styling */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #22316C;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(100%); 
+            transition: transform 0.4s ease-in-out;
+        }
+        
+        .cookie-banner.show {
+            transform: translateY(0); 
+        }
+        
+        .cookie-banner p {
+            margin: 0;
+            font-size: 0.95rem;
+            flex: 1;
+            padding-right: 2rem;
+            color: white;
+        }
+        
+        .cookie-banner a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .cookie-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .accept-btn {
+            background-color: #C02C21;
+            color: white;
+        }
+        
+        .accept-btn:hover {
+            background-color: #a0241b;
+        }
+        
+        .decline-btn {
+            background-color: white;
+            color: #22316C;
+        }
+        
+        .decline-btn:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* Responsive Design - Mobile Styling */
+        @media (max-width: 768px) {
+            /* Mobile Header Layout */
+            header {
+                flex-direction: column;
+                align-items: center; 
+                width: 100%;
+                padding: 1.5rem;
+            }
+            .header-left {
+                flex-direction: column;
+                align-items: center; 
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            .logo-link {
+                margin: 0 0 1rem 0; 
+            }
+            .header-logo {
+                max-width: 110px;
+                display: block;
+            }
+            .header-text {
+                text-align: center; 
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center; 
+            }
+            header h1 {
+                font-size: 2.4rem; 
+            }
+            .subtitle {
+                font-size: 1.3rem; 
+            }
+            
+            /* Mobile Search Box */
+            .header-search {
+                width: 100%;
+            }
+            .header-search form {
+                width: 100%;
+                display: flex;
+            }
+            .header-search input[type="text"] {
+                width: 100%;
+                flex-grow: 1;
+            }
+
+            /* Mobile Navigation Toggle */
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .nav-links {
+                display: none; 
+                flex-direction: column;
+                width: 100%;
+                background-color: #a0241b; 
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .dropdown {
+                width: 100%;
+                display: block;
+            }
+            .dropdown > a {
+                padding: 0.85rem 1.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+                font-size: 1rem;
+            }
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                border-top: none;
+                border-radius: 0;
+            }
+            .dropdown-content.show {
+                display: block;
+            }
+            .dropdown-content a {
+                padding: 0.6rem 1.5rem 0.6rem 2.5rem;
+                background-color: #22316C; 
+                color: white; 
+                font-size: 0.9em;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            }
+
+            /* Mobile Page Content Updates */
+            .content-panel {
+                padding: 1.5rem;
+            }
+
+            .doc-links {
+                flex-direction: column;
+            }
+            
+            .doc-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Mobile Footer Updates */
+            .footer-container {
+                flex-direction: column;
+            }
+            .footer-buttons {
+                position: static;
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+
+            /* Mobile Cookie Banner Layout */
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem;
+            }
+            .cookie-banner p {
+                padding-right: 0;
+                margin-bottom: 1rem;
+            }
+            .cookie-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="../../index.html" class="logo-link" title="Go to homepage">
+                <img src="../../home/images/stelogo.png" alt="St. Eanswythe's School Logo" class="header-logo">
+            </a>
+            <div class="header-text">
+                <h1>St. Eanswythe's</h1>
+                <p class="subtitle">Church of England Primary School</p>
+                <p class="strapline">Learning Holistically Through God's Unconditional Love.</p>
+            </div>
+        </div>
+
+        <div class="header-search">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
+                <input type="hidden" name="as_sitesearch" value="st-eanswythes.kent.sch.uk">
+                <input type="text" name="q" placeholder="Search site..." required>
+                <button type="submit" aria-label="Search">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </header>
+
+    <nav>
+        <button class="mobile-menu-toggle">
+            <span>☰ Menu</span>
+        </button>
+        <ul class="nav-links">
+            
+            <li class="dropdown">
+                <a href="#our-school">Our School ▾</a>
+                <div class="dropdown-content">
+                    <a href="../../our-school/our-christian-vision/our-christian-vision.html">Our Christian Vision</a>
+                    <a href="../../our-school/our-staff/our-staff.html">Our Staff</a>
+                    <a href="../../our-school/admissions/admissions.html">Admissions</a>
+                    <a href="../../our-school/governors/governors.html">Governors</a>
+                    <a href="../../our-school/policies/policies.html">Policies</a>
+                    <a href="../../our-school/inspection-reports-and-sats-results/inspection-reports-and-sats-results.html">Inspection Reports and SATs Results</a>
+                    <a href="../../our-school/pupil-premium/pupil-premium.html">Pupil Premium</a>
+                    <a href="../../our-school/pe-sport-premium/pe-sport-premium.html">PE and Sport Premium</a>
+                    <a href="../../our-school/special-educational-needs/special-educational-needs.html">Special Educational Needs</a>
+                    <a href="../../our-school/pastoral-care/pastoral-care.html">Pastoral Care</a>
+                    <a href="../../our-school/financial-info-benchmarking/financial-info-benchmarking.html">Financial Information and Benchmarking</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#classes">Classes ▾</a>
+                <div class="dropdown-content">
+                    <a href="../../classes/class-newsletters/class-newsletters.html">Class Newsletters</a>
+                    <a href="../../classes/class-r/class-r.html">Class R</a>
+                    <a href="../../classes/class-1/class-1.html">Class 1</a>
+                    <a href="../../classes/class-2/class-2.html">Class 2</a>
+                    <a href="../../classes/class-3/class-3.html">Class 3</a>
+                    <a href="../../classes/class-4/class-4.html">Class 4</a>
+                    <a href="../../classes/class-5/class-5.html">Class 5</a>
+                    <a href="../../classes/class-6/class-6.html">Class 6</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#parents">Parents and Carers ▾</a>
+                <div class="dropdown-content">
+                    <a href="../../parents-carers/ptfa/ptfa.html">PTFA</a>
+                    <a href="../../parents-carers/newsletters/newsletters.html">Newsletters</a>
+                    <a href="../../parents-carers/term-dates/term-dates.html">Term Dates</a>
+                    <a href="../../parents-carers/uniform/uniform.html">Uniform</a>
+                    <a href="../../parents-carers/homework/homework.html">Homework</a>
+                    <a href="../../parents-carers/breakfast-after-school-club/breakfast-after-school-club.html">Breakfast and After School Clubs</a>
+                    <a href="../../parents-carers/school-meals/school-meals.html">School Meals</a>
+                    <a href="../../parents-carers/school-clubs/school-clubs.html">School Clubs</a>
+                    <a href="../../parents-carers/attendance/attendance.html">Attendance</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#safeguarding">Safeguarding ▾</a>
+                <div class="dropdown-content">
+                    <a href="../../safeguarding/child-protection-safeguarding/child-protection-safeguarding.html">Child Protection and Safeguarding</a>
+                    <a href="../../safeguarding/online-safeguarding/online-safeguarding.html">Online Safeguarding</a>
+                </div>
+            </li>
+            
+            <li class="dropdown">
+                <a href="../../church/church.html">Church</a>
+            </li>
+            
+            <li class="dropdown">
+                <a href="../../contact-us/contact-us.html">Contact Us</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <main class="container">
+        
+        <div class="page-header">
+            <h1>Admissions</h1>
+        </div>
+
+        <div class="content-panel">
+            
+            <div class="doc-links">
+                <a href="documents/admissions-policy.pdf" target="_blank" class="doc-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    Admissions Policy
+                </a>
+                <a href="documents/admissions-leaflet.pdf" target="_blank" class="doc-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    Admissions Leaflet
+                </a>
+                <a href="documents/admissions-form.pdf" target="_blank" class="doc-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    Admissions Form
+                </a>
+            </div>
+
+            <div class="content-group">
+                <h3>In-Year Admissions</h3>
+                <p>For In Year Admissions please go to the <a href="https://www.kent.gov.uk/education-and-children/schools/school-places/admissions-criteria" target="_blank">Kent County Council Admissions Criteria website</a> to register and apply for a place. St Eanswythe’s is oversubscribed and therefore we rarely have spaces in all years. You may however place your child on our waiting lists by completing our application for admission form and emailing us at <a href="mailto:admin@st-eanswythes.kent.sch.uk">admin@st-eanswythes.kent.sch.uk</a>.</p>
+            </div>
+
+            <div class="content-group">
+                <h3>Reception Class September 2027</h3>
+                <div class="highlight-box">
+                    <p>Prospective parents are advised to read this section very carefully as the school is heavily oversubscribed and the Governing Body regrets that it is often unable to offer places to all applicants.</p>
+                </div>
+                
+                <p>Our current admissions policy can also be viewed via the KCC admissions website. Admissions Policies for <strong>2027/28</strong> can be read via the document link above.</p>
+                
+                <p>We aim to create a Christian environment in which each child is valued and special and in which respect for the rights and needs of others is nurtured.</p>
+                
+                <p>The school serves principally the Town Centre area of Folkestone, but because of changes in legislation, which rightly give parents a wider choice and because of our voluntary aided status, St Eanswythe’s admits children from a wider geographical area.</p>
+                
+                <p>By law children are required to attend school from the beginning of the term following their fifth birthday but in order to provide a full year of the foundation curriculum, we are able to offer places for children during the academic year following their fourth birthday. All children in this age group are offered full-time schooling. Children start in September about a week after other year groups.</p>
+                
+                <p><strong>The governors are unable to offer more than 30 places (our standard number) in the reception year.</strong></p>
+            </div>
+
+            <div class="content-group">
+                <h3>How to apply for a place</h3>
+                <p>All parents who wish their children to attend the new Reception Class at St Eanswythe’s during the academic year 2027/28 should contact the school office after early November 2026 to arrange to visit the school. You must apply for a school place via <a href="https://www.kent.gov.uk/primaryadmissions" target="_blank">kent.gov.uk/primaryadmissions</a> between early November 2026 and by <strong>Friday 15th January 2027</strong> to comply with the county wide admissions policy procedure. We work closely with KCC and other schools to provide smooth and co-ordinated admission arrangements across the area.</p>
+                
+                <p>All parents are required to complete the KCC online application – KCC common application form by the closing date of <strong>15th January 2027</strong>. The school's application for admission form will assist the school with the admissions process but is not mandatory.</p>
+                
+                <p>The number of applications usually exceeds the places available and the Governors Admissions Committee, when it meets (usually at the end of the Spring Term) has to use the admissions policy to decide which pupils will receive the available places.</p>
+            </div>
+
+            <div class="content-group">
+                <h3>Criteria for Admission</h3>
+                <p>The admissions policy does not take account of how long a child has been registered; it provides a list of criteria to enable applications received by the date published by the LA, which is during January (see KCC admissions website), to be placed in an order of priority.</p>
+            </div>
+
+            <div class="content-group">
+                <h3>Successful Applicants</h3>
+                <p>Successful applicants are informed in Term 5. You must accept the place offered by the local authority deadline (date to be confirmed on National Offer Day).</p>
+                <p>We will be doing open afternoons for you and your child in the summer term. The school will contact parents with dates and times.</p>
+            </div>
+
+            <div class="content-group">
+                <h3>Appeals Arrangements</h3>
+                <p>The law allows you to appeal to an Independent Appeal Panel against the refusal of a place at any of the schools you applied for. Should you wish to, you may also contact your local County Councillor for support. Any appeal should be lodged online to the independent appeals panel: <a href="https://www.kent.gov.uk/education-and-children/schools/school-places/appeal-a-school-offer#tab-1" target="_blank">Appeal a school offer</a> by <strong>Tuesday 18 May 2027</strong>.</p>
+                
+                <p>Our appeals guidance is subject to change so please ensure you check our website for more details at: <a href="http://www.kent.gov.uk/schoolappeals" target="_blank">kent.gov.uk/schoolappeals</a></p>
+                
+                <p>If your child is due to start primary school in September 2027, you can appeal if you are refused a place at one of your preferred schools on National Offer Day (<strong>Friday 16 April 2027</strong>).</p>
+                
+                <p>You must submit your appeal before <strong>Tuesday 18 May 2027</strong> for it to be considered by <strong>Tuesday 20 July 2027</strong>. Any appeals received after this time will be heard within 40 school days from the deadline, or where reasonably possible in line with updated guidance from the Department for Education.</p>
+                
+                <p>For late applications, appeals should be heard within 40 school days from the deadline for lodging appeals where possible, or within 30 school days of the appeal being lodged where reasonably possible in line with updated guidance from the Department for Education.</p>
+                
+                <p>In accordance with the requirements of the 1980 Education Act parents have the right of appeal if their application is not successful. This appeal will be heard by KCC Independent Appeals; decisions are legally binding on both governors and the Local Education Authority.</p>
+                
+                <p>Appeals outside of main round admissions should be sent to Mr P Barton, Clerk to the Governors, at <a href="mailto:admin@st-eanswythes.kent.sch.uk">admin@st-eanswythes.kent.sch.uk</a>.</p>
+                
+                <p>Any applications that the Governors receive after the places have been allocated are put on a waiting list and considered according to the same criteria when a place becomes available.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-text">
+                <p><strong>St. Eanswythe's Primary School</strong></p>
+                <p>Church Street, Folkestone, Kent. CT20 1SE</p>
+                <p>Tel: 01303 255516 | Email: office@st-eanswythes.kent.sch.uk</p>
+                <p style="margin-top: 1rem; font-size: 0.8em; color: #a0aec0;">&copy; 2026 St. Eanswythe's School. All rights reserved.</p>
+            </div>
+            
+            <div class="footer-buttons">
+                <a href="https://www.ceop.police.uk/ceop-reporting/" target="_blank">
+                    <img src="../../home/images/ceop-button.png" alt="CEOP Reporting" class="footer-btn">
+                </a>
+                <a href="https://login.arbor.sc/" target="_blank">
+                    <img src="../../home/images/arbor-button.png" alt="Arbor Login" class="footer-btn">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner HTML -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use essential cookies to make our site work. We'd also like to set optional cookies to help us improve it. <a href="../../our-school/policies/policies.html">Read our Cookie Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn accept-btn">Accept</button>
+            <button id="decline-cookies" class="cookie-btn decline-btn">Decline</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Toggle the main menu visibility on mobile
+            mobileToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Handle the accordion dropdown logic
+            dropdowns.forEach(dropdown => {
+                const triggerLink = dropdown.querySelector('a');
+                const content = dropdown.querySelector('.dropdown-content');
+
+                if (content) {
+                    triggerLink.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault(); 
+
+                            document.querySelectorAll('.dropdown-content').forEach(menu => {
+                                if (menu !== content) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+
+                            content.classList.toggle('show');
+                        }
+                    });
+                }
+            });
+
+            // Cookie Banner Logic
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const declineBtn = document.getElementById('decline-cookies');
+
+            if (!localStorage.getItem('cookieChoice')) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieChoice', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieChoice', 'declined');
+                cookieBanner.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
