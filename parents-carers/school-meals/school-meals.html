@@ -235,22 +235,6 @@
             margin-bottom: 3rem;
         }
 
-        .intro-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #2d3748;
-            margin-bottom: 2.5rem;
-            padding: 1.5rem;
-            background-color: #fdf5f5;
-            border-left: 5px solid #C02C21;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .intro-text p {
-            margin: 0;
-            color: #22316C;
-        }
-
         /* Content Sections */
         .content-group {
             margin-bottom: 3rem;
@@ -275,28 +259,90 @@
             color: #4a5568;
             line-height: 1.7;
         }
-        
-        .content-list {
-            list-style: none;
-            padding: 0;
-        }
 
-        .content-list li {
-            background-color: #f8fafc;
-            margin-bottom: 1rem;
+        /* Notice Box (Moved down) */
+        .notice-box {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2d3748;
+            margin-bottom: 3rem;
             padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #22316C;
-            color: #4a5568;
-            line-height: 1.7;
+            background-color: #fdf5f5;
+            border-left: 5px solid #C02C21;
+            border-radius: 0 8px 8px 0;
         }
 
-        .content-list li strong {
-            display: block;
+        .notice-box p {
+            margin: 0;
+            color: #22316C;
+        }
+
+        /* Menu Week Card Styling */
+        .menu-week-card {
+            background-color: #f8fafc;
+            border-left: 5px solid #22316C;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .menu-day {
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .menu-day:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .day-title {
             color: #C02C21;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meal-option {
+            color: #4a5568;
+            font-size: 1.05rem;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .meal-option::before {
+            content: "•";
+            color: #22316C;
+            font-weight: bold;
+            position: absolute;
+            left: 0.5rem;
+        }
+
+        .meal-or {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #a0aec0;
+            margin: 0.4rem 0 0.4rem 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .meal-dessert {
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px dashed #cbd5e0;
+            font-style: italic;
+            color: #2d3748;
+            font-size: 1rem;
+        }
+        
+        .meal-dessert strong {
+            font-style: normal;
+            color: #22316C;
         }
 
         /* Footer */
@@ -510,8 +556,8 @@
                 padding: 1.5rem;
             }
 
-            .content-list li {
-                padding: 1rem;
+            .menu-week-card {
+                padding: 1.5rem 1rem;
             }
 
             /* Mobile Footer Updates */
@@ -647,90 +693,156 @@
         </div>
 
         <div class="content-panel">
-            
-            <div class="intro-text">
-                <p><strong>PLEASE NOTE:</strong> We hide plenty of fruit and vegetables in our dishes and sauces and use low fat, low sugar and wholemeal alternatives as much as we possibly can!</p>
-            </div>
 
             <!-- Week 1 Menu -->
             <div class="content-group">
-                <h2>Week 1 Lunch Menu</h2>
-                <ul class="content-list">
-                    <li>
-                        <strong>Meat Free Monday</strong>
-                        Green pesto pasta with garlic bread, broccoli &/salad OR Jacket potato with beans or cheese, coleslaw & salad. Chocolate shortbread & milk. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Tuesday</strong>
-                        Beef burger OR Veggie burger, in a bun, with corn on the cob, coleslaw & salad OR Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad. Orange jelly with fresh oranges. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Roast Wednesday</strong>
-                        Roast Gammon OR Quorn Roast with roast potatoes, seasonal vegetables & gravy OR Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad. Homemade cake. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Thursday</strong>
-                        Chicken & Vegetable Curry with rice & Naan bread OR Chickpea & Vegetable Curry with rice & Naan bread (V) OR Jacket Potato with Tuna, Beans or Cheese, Homemade coleslaw & salad. Strawberry yoghurt with fresh strawberries. Fresh Fruit.
-                    </li>
-                    <li>
-                        <strong>Fishy Friday</strong>
-                        Fish fingers or Fishless Fingers with Chips & Peas or Baked Beans OR Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad. Jam & Coconut Sponge & custard. Fresh Fruit.
-                    </li>
-                </ul>
+                <h2>Week 1 Lunch Menu[cite: 3]</h2>
+                <div class="menu-week-card">
+                    
+                    <div class="menu-day">
+                        <div class="day-title">Meat Free Monday</div>
+                        <div class="meal-option">Green pesto pasta with garlic bread, broccoli &/salad</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket potato with beans or cheese, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Chocolate shortbread & milk | Fresh fruit[cite: 3]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Tuesday</div>
+                        <div class="meal-option">Beef burger OR Veggie burger, in a bun, with corn on the cob, coleslaw & salad</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Orange jelly with fresh oranges | Fresh fruit[cite: 3]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Roast Wednesday</div>
+                        <div class="meal-option">Roast Gammon OR Quorn Roast with roast potatoes, seasonal vegetables & gravy</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Homemade cake | Fresh fruit[cite: 3]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Thursday</div>
+                        <div class="meal-option">Chicken & Vegetable Curry with rice & Naan bread</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Chickpea & Vegetable Curry with rice & Naan bread (V)</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket Potato with Tuna, Beans or Cheese, Homemade coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Strawberry yoghurt with fresh strawberries | Fresh Fruit[cite: 3]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Fishy Friday</div>
+                        <div class="meal-option">Fish fingers or Fishless Fingers with Chips & Peas or Baked Beans</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Jam & Coconut Sponge & custard | Fresh Fruit[cite: 3]</div>
+                    </div>
+
+                </div>
             </div>
 
             <!-- Week 2 Menu -->
             <div class="content-group">
-                <h2>Week 2 Lunch Menu</h2>
-                <ul class="content-list">
-                    <li>
-                        <strong>Meat Free Monday</strong>
-                        Cheese & Tomato pizza with sweetcorn, coleslaw & salad OR Jacket potato with beans or cheese, coleslaw & salad. Caramel Mousse. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Tuesday</strong>
-                        Salmon & Broccoli pasta OR Cheesy Broccoli pasta, with garlic bread, peas &/salad OR Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad. Raspberry jelly with fresh raspberries. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Roast Wednesday</strong>
-                        Roast Chicken OR Quorn Roast with stuffing, roast potatoes, seasonal vegetables & gravy OR Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad. Chocolate brownie. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Thursday</strong>
-                        Chilli con carne OR Veggie bean chilli with rice & salad OR Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad. Bananas & custard. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Fishy Friday</strong>
-                        Fishcake OR Vegetable Burger with chips & peas or beans OR Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad. Homemade cake. Fresh fruit.
-                    </li>
-                </ul>
+                <h2>Week 2 Lunch Menu[cite: 2]</h2>
+                <div class="menu-week-card">
+                    
+                    <div class="menu-day">
+                        <div class="day-title">Meat Free Monday</div>
+                        <div class="meal-option">Cheese & Tomato pizza with sweetcorn, coleslaw & salad</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket potato with beans or cheese, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Caramel Mousse | Fresh fruit[cite: 2]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Tuesday</div>
+                        <div class="meal-option">Salmon & Broccoli pasta OR Cheesy Broccoli pasta, with garlic bread, peas &/salad</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Raspberry jelly with fresh raspberries | Fresh fruit[cite: 2]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Roast Wednesday</div>
+                        <div class="meal-option">Roast Chicken OR Quorn Roast with stuffing, roast potatoes, seasonal vegetables & gravy</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Chocolate brownie | Fresh fruit[cite: 2]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Thursday</div>
+                        <div class="meal-option">Chilli con carne OR Veggie bean chilli with rice & salad</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Bananas & custard | Fresh fruit[cite: 2]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Fishy Friday</div>
+                        <div class="meal-option">Fishcake OR Vegetable Burger with chips & peas or beans</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Homemade cake | Fresh fruit[cite: 2]</div>
+                    </div>
+
+                </div>
             </div>
 
             <!-- Week 3 Menu -->
             <div class="content-group">
-                <h2>Week 3 Lunch Menu</h2>
-                <ul class="content-list">
-                    <li>
-                        <strong>Meat Free Monday</strong>
-                        Cheese & Tomato quiche with new potatoes, coleslaw & salad OR Jacket potato with beans or cheese, coleslaw & salad. Rice pudding with Mango. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Tuesday</strong>
-                        Chicken burrito OR Veggie bean burrito, with coleslaw & salad OR Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad. Apple & Sultana flapjack. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Roast Wednesday</strong>
-                        Pork sausage OR Veggie sausage with Yorkshire pudding, roast potatoes, seasonal vegetables & gravy OR Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad. Homemade cake. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Thursday</strong>
-                        Spaghetti Bolognese or Quorn Spaghetti Bolognese with garlic bread & salad OR Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad. Peach yoghurt with peach slices. Fresh fruit.
-                    </li>
-                    <li>
-                        <strong>Fishy Friday</strong>
-                        Battered Fish OR Battered Quorn fillet with chips & peas or beans OR Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad. Vanilla Ice cream. Fresh fruit.
-                    </li>
-                </ul>
+                <h2>Week 3 Lunch Menu[cite: 1]</h2>
+                <div class="menu-week-card">
+                    
+                    <div class="menu-day">
+                        <div class="day-title">Meat Free Monday</div>
+                        <div class="meal-option">Cheese & Tomato quiche with new potatoes, coleslaw & salad</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket potato with beans or cheese, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Rice pudding with Mango | Fresh fruit[cite: 1]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Tuesday</div>
+                        <div class="meal-option">Chicken burrito OR Veggie bean burrito, with coleslaw & salad</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Apple & Sultana flapjack | Fresh fruit[cite: 1]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Roast Wednesday</div>
+                        <div class="meal-option">Pork sausage OR Veggie sausage with Yorkshire pudding, roast potatoes, seasonal vegetables & gravy</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Homemade cake | Fresh fruit[cite: 1]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Thursday</div>
+                        <div class="meal-option">Spaghetti Bolognese or Quorn Spaghetti Bolognese with garlic bread & salad</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Jacket potato with beans, cheese, or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Peach yoghurt with peach slices | Fresh fruit[cite: 1]</div>
+                    </div>
+
+                    <div class="menu-day">
+                        <div class="day-title">Fishy Friday</div>
+                        <div class="meal-option">Battered Fish OR Battered Quorn fillet with chips & peas or beans</div>
+                        <div class="meal-or">OR</div>
+                        <div class="meal-option">Wholemeal wrap with ham, cheese or tuna mayo, coleslaw & salad</div>
+                        <div class="meal-dessert"><strong>Dessert:</strong> Vanilla Ice cream | Fresh fruit[cite: 1]</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Notice Box (Moved below menus) -->
+            <div class="notice-box">
+                <p><strong>PLEASE NOTE:</strong> We hide plenty of fruit and vegetables in our dishes and sauces and use low fat, low sugar and wholemeal alternatives as much as we possibly can![cite: 1, 2, 3]</p>
             </div>
 
             <!-- Lunchtime Arrangements -->
