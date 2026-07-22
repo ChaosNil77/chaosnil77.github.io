@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>St. Eanswythe's</title>
+    <title>Our Staff - St. Eanswythe's</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="home/images/stelogo.png">
+    <!-- Favicon (Path Updated) -->
+    <link rel="icon" type="image/png" href="../../home/images/stelogo.png">
 
     <style>
         /* General Reset and Base Styles */
@@ -200,146 +200,89 @@
 
         /* Main Layout */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        /* Hero Photo Gallery */
-        .hero-gallery {
-            position: relative;
-            width: 100%;
-            height: 350px;
-            border-radius: 16px; 
+        /* Page Header */
+        .page-header {
             margin-bottom: 2rem;
             border-bottom: 4px solid #C02C21;
-            overflow: hidden;
-            background-color: #1a224c;
-            box-shadow: 0 4px 8px rgba(34, 49, 108, 0.15);
+            padding-bottom: 1rem;
         }
 
-        .hero-gallery .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #22316C;
+            margin-bottom: 0.5rem;
         }
 
-        .hero-gallery .slide-1 {
-            z-index: 1;
-            opacity: 1;
-        }
-
-        .hero-gallery .slide-2 {
-            z-index: 2;
-            opacity: 0;
-            animation: crossfade 12s infinite ease-in-out;
-        }
-
-        @keyframes crossfade {
-            0% { opacity: 0; }
-            16.66% { opacity: 1; }
-            50% { opacity: 1; }
-            66.66% { opacity: 0; }
-            100% { opacity: 0; }
-        }
-
-        /* Grid Layout for Content */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+        /* Staff List Layout */
+        .staff-panel {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
             margin-bottom: 3rem;
         }
+
+        .staff-group {
+            margin-bottom: 2.5rem;
+        }
         
-        /* General Panel Styling */
-        .panel {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(34, 49, 108, 0.1);
+        .staff-group:last-child {
+            margin-bottom: 0;
         }
 
-        /* Headteacher Welcome Panel Styling */
-        .welcome-panel {
-            background: white;
-            border-radius: 12px;
-            border: 2px solid #C02C21;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
+        .staff-group h3 {
+            color: #C02C21;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .welcome-header {
-            background-color: #C02C21;
-            padding: 1.5rem 1.5rem 1.5rem 230px; 
-            border-radius: 9px 9px 0 0;
-            min-height: 110px;
+        .staff-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .staff-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f4f8;
             display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .welcome-header h2 {
-            color: white;
-            margin: 0;
-            font-size: 1.8rem;
-            line-height: 1.2;
-        }
-
-        .welcome-content {
-            padding: 1.2rem 2.5rem 2rem 2.5rem; 
-            color: #4a5568; 
-        }
-
-        .headteacher-photo {
-            float: left; 
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-top: -105px;
-            margin-right: 15px; 
-            margin-bottom: 5px; 
-            position: relative;
-            z-index: 5;
-            shape-outside: circle(50%); 
-            shape-margin: 50px; 
-            object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-        }
-
-        .welcome-intro {
-            font-weight: 600;
-            color: #4a5568;
-        }
-
-        .highlight-blue {
-            color: #1a224c; 
-            font-weight: bold;
-            font-size: 1.05rem;
-        }
-
-        /* Notice Board */
-        .notice-board {
-            background-color: #fdf5f5;
-            border-left: 4px solid #C02C21;
-        }
-        .notice-board ul {
-            list-style-type: none;
-        }
-        .notice-board li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .notice-board li:last-child {
+        .staff-list li:last-child {
             border-bottom: none;
         }
-        .date-badge {
-            font-weight: bold;
+
+        .staff-name {
+            font-weight: 600;
             color: #22316C;
-            display: block;
-            font-size: 0.9em;
+            font-size: 1.1rem;
+        }
+
+        .staff-role-label {
+            color: #4a5568;
+            font-size: 0.95rem;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        /* Multicolumn list for generic roles like TAs */
+        .multicolumn-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            column-gap: 3rem;
+        }
+
+        .multicolumn-list li {
+            display: block; 
         }
 
         /* Footer */
@@ -402,12 +345,12 @@
             align-items: center;
             z-index: 1000;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
-            transform: translateY(100%); /* Hidden off-screen by default */
+            transform: translateY(100%); 
             transition: transform 0.4s ease-in-out;
         }
         
         .cookie-banner.show {
-            transform: translateY(0); /* Slides up */
+            transform: translateY(0); 
         }
         
         .cookie-banner p {
@@ -458,9 +401,6 @@
 
         /* Responsive Design - Mobile Styling */
         @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
             
             /* Mobile Header Layout */
             header {
@@ -506,10 +446,6 @@
                 width: 100%;
                 flex-grow: 1;
             }
-            
-            .hero-gallery {
-                height: 200px;
-            }
 
             /* Mobile Navigation Toggle */
             .mobile-menu-toggle {
@@ -553,30 +489,22 @@
                 font-size: 0.9em;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             }
-            
-            /* Welcome Panel Mobile Layout */
-            .welcome-header {
-                padding: 1.2rem 1rem 1.2rem 100px; 
-                text-align: left;
-                min-height: 90px;
-                align-items: center;
-            }
-            .welcome-header h2 {
-                font-size: 1.3rem;
-            }
-            .headteacher-photo {
-                float: none; 
-                position: absolute;
-                top: 1.2rem; 
-                left: 1rem;
-                margin: 0; 
-                width: 75px;
-                height: 75px;
-                border: 2px solid white;
-                shape-outside: none; 
-            }
-            .welcome-content {
+
+            /* Mobile Staff List Updates */
+            .staff-panel {
                 padding: 1.5rem;
+            }
+            
+            .staff-list:not(.multicolumn-list) li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .staff-role-label {
+                text-align: left;
+                margin-top: 0.25rem;
+                font-size: 0.9rem;
+                color: #718096;
             }
 
             /* Mobile Footer Updates */
@@ -610,7 +538,7 @@
 
     <header>
         <div class="header-left">
-            <img src="home/images/stelogo.png" alt="St. Eanswythe's School Logo" class="header-logo">
+            <img src="../../home/images/stelogo.png" alt="St. Eanswythe's School Logo" class="header-logo">
             <div class="header-text">
                 <h1>St. Eanswythe's</h1>
                 <p class="subtitle">Church of England Primary School</p>
@@ -642,7 +570,7 @@
                 <a href="#our-school">Our School ▾</a>
                 <div class="dropdown-content">
                     <a href="#vision">Our Christian Vision</a>
-                    <a href="our-school/our-staff/our-staff.html">Our Staff</a>
+                    <a href="our-staff.html">Our Staff</a>
                     <a href="#admissions">Admissions</a>
                     <a href="#governors">Governors</a>
                     <a href="policies.html">Policies</a>
@@ -705,60 +633,148 @@
 
     <main class="container">
         
-        <section class="hero-gallery">
-            <img src="home/images/bellboat.jpg" alt="Students in a bellboat" class="slide slide-1">
-            <img src="home/images/coastalpark.jpg" alt="Students at the coastal park" class="slide slide-2">
-        </section>
+        <div class="page-header">
+            <h1>Our Staff</h1>
+            <p>Meet the dedicated team working to provide a nurturing and holistic education for every child at St. Eanswythe's.</p>
+        </div>
 
-        <div class="content-grid">
+        <div class="staff-panel">
             
-            <section class="welcome-panel">
-                <div class="welcome-header">
-                    <h2>Welcome to St. Eanswythe's Primary School</h2>
-                </div>
-                
-                <div class="welcome-content">
-                    <img src="home/images/claire.png" alt="Headteacher Mrs Jacobs" class="headteacher-photo">
-                    
-                    <p class="welcome-intro">Welcome to St Eanswythe’s Primary School, a happy and caring community with a strong Christian ethos, located in the heart of town. We take a holistic approach to education, ensuring every child achieves excellent academic progress while developing into a kind, respectful, and responsible citizen.</p>
-                    
-                    <p class="highlight-blue">If you are looking for a school place in September 2027, please contact us to book a tour of our friendly school.</p>
-                    
-                    <p>From Reception onwards, our dedicated team provides a supportive environment and a stimulating curriculum that sparks imagination. We strive to nurture each child's unique talents through rich experiences in sports, music, and the arts, alongside frequent school trips and a wide range of extracurricular clubs.</p>
-                    
-                    <p>We are incredibly proud of our school and the well-being of the children in our care. We hope you enjoy exploring our website to learn more, and we warmly invite you to contact us to arrange a visit so you can see our vibrant school community in action.</p>
-
-                    <p>I look forward to welcoming you.</p>
-                    <br>
-                    <p><strong>Mrs Jacobs</strong><br>Headteacher</p>
-                </div>
-            </section>
-
-            <aside class="panel notice-board">
-                <h3>Notice Board</h3>
-                <ul>
+            <!-- Leadership Team -->
+            <div class="staff-group">
+                <h3>Leadership</h3>
+                <ul class="staff-list">
                     <li>
-                        <span class="date-badge">29th June</span>
-                        Ducklings PE
+                        <span class="staff-name">Mrs C Jacobs</span>
+                        <span class="staff-role-label">Headteacher</span>
                     </li>
                     <li>
-                        <span class="date-badge">29th June</span>
-                        Sponsored Fun Run
+                        <span class="staff-name">Mrs J Price</span>
+                        <span class="staff-role-label">Assistant Headteacher & Designated Safeguarding Lead</span>
                     </li>
                     <li>
-                        <span class="date-badge">30th June</span>
-                        Barn Class transition morning
+                        <span class="staff-name">Mr N Brinkley</span>
+                        <span class="staff-role-label">Assistant Headteacher</span>
                     </li>
                     <li>
-                        <span class="date-badge">30th June</span>
-                        8:30am: KA/KS meeting with parent
-                    </li>
-                    <li>
-                        <span class="date-badge">30th June</span>
-                        8:30am: Effective Church Schools Visit
+                        <span class="staff-name">Mrs L Thompson</span>
+                        <span class="staff-role-label">Special Educational Needs Coordinator (SENCO)</span>
                     </li>
                 </ul>
-            </aside>
+            </div>
+
+            <!-- Teachers (Updated) -->
+            <div class="staff-group">
+                <h3>Teachers</h3>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Mrs J Buchanan</span>
+                        <span class="staff-role-label">Year 6</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs A Edgar</span>
+                        <span class="staff-role-label">Year 5</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mr S O'Neon</span>
+                        <span class="staff-role-label">Year 4</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs G Purver & Mrs C Laidlow</span>
+                        <span class="staff-role-label">Year 3</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Miss S Giles</span>
+                        <span class="staff-role-label">Year 2</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs C Honzik</span>
+                        <span class="staff-role-label">Year 1</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs A Giles</span>
+                        <span class="staff-role-label">Year R</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Teaching Assistants (Updated to remove duplicate) -->
+            <div class="staff-group">
+                <h3>Teaching Assistants</h3>
+                <ul class="staff-list multicolumn-list">
+                    <li><span class="staff-name">Mrs K Reeve</span></li>
+                    <li><span class="staff-name">Ms G Chamberlain</span></li>
+                    <li><span class="staff-name">Miss M Hayward</span></li>
+                    <li><span class="staff-name">Mrs H McAllister</span></li>
+                    <li><span class="staff-name">Mrs L Gerbino</span></li>
+                    <li><span class="staff-name">Mrs J Lound</span></li>
+                    <li><span class="staff-name">Mrs C Crockford</span></li>
+                    <li><span class="staff-name">Mrs H Thomson</span></li>
+                    <li><span class="staff-name">Mrs J Humphreys</span></li>
+                    <li><span class="staff-name">Miss Y Martin</span></li>
+                </ul>
+            </div>
+
+            <!-- Pastoral & Family Support -->
+            <div class="staff-group">
+                <h3>Pastoral & Family Support</h3>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Mrs K Adlington</span>
+                        <span class="staff-role-label">Family Support Lead</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs K Semple</span>
+                        <span class="staff-role-label">Pastoral Lead</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Office & Premises -->
+            <div class="staff-group">
+                <h3>Office & Premises</h3>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Tracy Arnald</span>
+                        <span class="staff-role-label">School Business Manager</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Miss T Thompson</span>
+                        <span class="staff-role-label">Office Staff</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs S Moody</span>
+                        <span class="staff-role-label">Office Staff</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mr J Hutchison</span>
+                        <span class="staff-role-label">Caretaker</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Catering & Midday Supervision -->
+            <div class="staff-group">
+                <h3>Catering & Midday Supervision</h3>
+                <ul class="staff-list">
+                    <li>
+                        <span class="staff-name">Mrs A Davison</span>
+                        <span class="staff-role-label">Catering Manager</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs S Ford</span>
+                        <span class="staff-role-label">Lunchtime Kitchen Assistant</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mrs J McGourty</span>
+                        <span class="staff-role-label">Midday Supervisor</span>
+                    </li>
+                    <li>
+                        <span class="staff-name">Mr P Wick</span>
+                        <span class="staff-role-label">Midday Supervisor</span>
+                    </li>
+                </ul>
+            </div>
 
         </div>
     </main>
@@ -774,10 +790,10 @@
             
             <div class="footer-buttons">
                 <a href="https://www.ceop.police.uk/ceop-reporting/" target="_blank">
-                    <img src="home/images/ceop-button.png" alt="CEOP Reporting" class="footer-btn">
+                    <img src="../../home/images/ceop-button.png" alt="CEOP Reporting" class="footer-btn">
                 </a>
                 <a href="https://login.arbor.sc/" target="_blank">
-                    <img src="home/images/arbor-button.png" alt="Arbor Login" class="footer-btn">
+                    <img src="../../home/images/arbor-button.png" alt="Arbor Login" class="footer-btn">
                 </a>
             </div>
         </div>
@@ -808,21 +824,17 @@
                 const triggerLink = dropdown.querySelector('a');
                 const content = dropdown.querySelector('.dropdown-content');
 
-                // Only attach the dropdown click listener if there is an actual dropdown menu inside
                 if (content) {
                     triggerLink.addEventListener('click', (e) => {
-                        // Only apply accordion logic on mobile screens
                         if (window.innerWidth <= 768) {
                             e.preventDefault(); 
 
-                            // Close any other open dropdowns for a clean accordion effect
                             document.querySelectorAll('.dropdown-content').forEach(menu => {
                                 if (menu !== content) {
                                     menu.classList.remove('show');
                                 }
                             });
 
-                            // Toggle the clicked dropdown
                             content.classList.toggle('show');
                         }
                     });
@@ -834,15 +846,12 @@
             const acceptBtn = document.getElementById('accept-cookies');
             const declineBtn = document.getElementById('decline-cookies');
 
-            // Check if the user has already made a choice
             if (!localStorage.getItem('cookieChoice')) {
-                // Add a small delay so it slides up after the page loads
                 setTimeout(() => {
                     cookieBanner.classList.add('show');
                 }, 1000);
             }
 
-            // Save choice and hide banner when buttons are clicked
             acceptBtn.addEventListener('click', () => {
                 localStorage.setItem('cookieChoice', 'accepted');
                 cookieBanner.classList.remove('show');
