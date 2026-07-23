@@ -3,36 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title | default: "St. Eanswythe's Primary School" }}</title>
 
-    <!-- Dynamically resolves /style.css at the site root -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ '/home/images/stelogo.png' | relative_url }}">
+
+    <!-- CSS stylesheet link -->
     <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 <body>
 
-    <!-- Site Header -->
+    <!-- Header -->
     <header>
-        <h1>{{ site.title }}</h1>
-        <p>{{ site.description }}</p>
+        <div class="header-left">
+            <a href="{{ '/' | relative_url }}" class="logo-link" title="Go to homepage">
+                <img src="{{ '/home/images/stelogo.png' | relative_url }}" alt="St. Eanswythe's School Logo" class="header-logo">
+            </a>
+            <div class="header-text">
+                <h1>St. Eanswythe's</h1>
+                <p class="subtitle">Church of England Primary School</p>
+                <p class="strapline">Learning Holistically Through God's Unconditional Love.</p>
+            </div>
+        </div>
+
+        <div class="header-search">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
+                <input type="hidden" name="as_sitesearch" value="st-eanswythes.kent.sch.uk">
+                <input type="text" name="q" placeholder="Search site..." required>
+                <button type="submit" aria-label="Search">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+        </div>
     </header>
 
-    <!-- Navigation Menu -->
+    <!-- Navigation Bar -->
     <nav>
-        <ul>
-            <li><a href="{{ '/' | relative_url }}">Home</a></li>
-            <li><a href="{{ '/classes/class-6/class-6.html' | relative_url }}">Class 6</a></li>
+        <button class="mobile-menu-toggle">
+            <span>☰ Menu</span>
+        </button>
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#our-school">Our School ▾</a>
+                <div class="dropdown-content">
+                    <a href="{{ '/our-school/our-christian-vision/our-christian-vision.html' | relative_url }}">Our Christian Vision</a>
+                    <a href="{{ '/our-school/our-staff/our-staff.html' | relative_url }}">Our Staff</a>
+                    <a href="{{ '/our-school/admissions/admissions.html' | relative_url }}">Admissions</a>
+                    <a href="{{ '/our-school/governors/governors.html' | relative_url }}">Governors</a>
+                    <a href="{{ '/our-school/policies/policies.html' | relative_url }}">Policies</a>
+                    <a href="{{ '/our-school/inspection-reports-and-sats-results/inspection-reports-and-sats-results.html' | relative_url }}">Inspection Reports and SATs Results</a>
+                    <a href="{{ '/our-school/pupil-premium/pupil-premium.html' | relative_url }}">Pupil Premium</a>
+                    <a href="{{ '/our-school/pe-sport-premium/pe-sport-premium.html' | relative_url }}">PE and Sport Premium</a>
+                    <a href="{{ '/our-school/special-educational-needs/special-educational-needs.html' | relative_url }}">Special Educational Needs</a>
+                    <a href="{{ '/our-school/pastoral-care/pastoral-care.html' | relative_url }}">Pastoral Care</a>
+                    <a href="{{ '/our-school/financial-info-benchmarking/financial-info-benchmarking.html' | relative_url }}">Financial Information and Benchmarking</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="#classes">Classes ▾</a>
+                <div class="dropdown-content">
+                    <a href="{{ '/classes/class-newsletters/class-newsletters.html' | relative_url }}">Class Newsletters</a>
+                    <a href="{{ '/classes/class-r/class-r.html' | relative_url }}">Class R</a>
+                    <a href="{{ '/classes/class-1/class-1.html' | relative_url }}">Class 1</a>
+                    <a href="{{ '/classes/class-2/class-2.html' | relative_url }}">Class 2</a>
+                    <a href="{{ '/classes/class-3/class-3.html' | relative_url }}">Class 3</a>
+                    <a href="{{ '/classes/class-4/class-4.html' | relative_url }}">Class 4</a>
+                    <a href="{{ '/classes/class-5/class-5.html' | relative_url }}">Class 5</a>
+                    <a href="{{ '/classes/class-6/class-6.html' | relative_url }}">Class 6</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="#parents">Parents and Carers ▾</a>
+                <div class="dropdown-content">
+                    <a href="{{ '/parents-carers/ptfa/ptfa.html' | relative_url }}">PTFA</a>
+                    <a href="{{ '/parents-carers/newsletters/newsletters.html' | relative_url }}">Newsletters</a>
+                    <a href="{{ '/parents-carers/term-dates/term-dates.html' | relative_url }}">Term Dates</a>
+                    <a href="{{ '/parents-carers/uniform/uniform.html' | relative_url }}">Uniform</a>
+                    <a href="{{ '/parents-carers/homework/homework.html' | relative_url }}">Homework</a>
+                    <a href="{{ '/parents-carers/breakfast-after-school-club/breakfast-after-school-club.html' | relative_url }}">Breakfast and After School Clubs</a>
+                    <a href="{{ '/parents-carers/school-meals/school-meals.html' | relative_url }}">School Meals</a>
+                    <a href="{{ '/parents-carers/school-clubs/school-clubs.html' | relative_url }}">School Clubs</a>
+                    <a href="{{ '/parents-carers/attendance/attendance.html' | relative_url }}">Attendance</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="#safeguarding">Safeguarding ▾</a>
+                <div class="dropdown-content">
+                    <a href="{{ '/safeguarding/child-protection-safeguarding/child-protection-safeguarding.html' | relative_url }}">Child Protection and Safeguarding</a>
+                    <a href="{{ '/safeguarding/online-safeguarding/online-safeguarding.html' | relative_url }}">Online Safeguarding</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="{{ '/church/church.html' | relative_url }}">Church</a>
+            </li>
+
+            <li class="dropdown">
+                <a href="{{ '/contact-us/contact-us.html' | relative_url }}">Contact Us</a>
+            </li>
         </ul>
     </nav>
 
-    <!-- Main Content Area -->
+    <!-- Page Body Container -->
     <main class="container">
         {{ content }}
     </main>
 
-    <!-- Site Footer -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-text">
+                <p><strong>St. Eanswythe's Primary School</strong></p>
+                <p>Church Street, Folkestone, Kent. CT20 1SE</p>
+                <p>Tel: 01303 255516 | Email: office@st-eanswythes.kent.sch.uk</p>
+                <p style="margin-top: 1rem; font-size: 0.8em; color: #a0aec0;">&copy; {{ 'now' | date: "%Y" }} St. Eanswythe's School. All rights reserved.</p>
+            </div>
+
+            <div class="footer-buttons">
+                <a href="https://www.ceop.police.uk/ceop-reporting/" target="_blank">
+                    <img src="{{ '/home/images/ceop-button.png' | relative_url }}" alt="CEOP Reporting" class="footer-btn">
+                </a>
+                <a href="https://login.arbor.sc/" target="_blank">
+                    <img src="{{ '/home/images/arbor-button.png' | relative_url }}" alt="Arbor Login" class="footer-btn">
+                </a>
+            </div>
+        </div>
     </footer>
 
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>We use essential cookies to make our site work. We'd also like to set optional cookies to help us improve it. <a href="{{ '/our-school/policies/policies.html' | relative_url }}">Read our Cookie Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn accept-btn">Accept</button>
+            <button id="decline-cookies" class="cookie-btn decline-btn">Decline</button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu and Cookie Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            dropdowns.forEach(dropdown => {
+                const triggerLink = dropdown.querySelector('a');
+                const content = dropdown.querySelector('.dropdown-content');
+
+                if (content) {
+                    triggerLink.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            document.querySelectorAll('.dropdown-content').forEach(menu => {
+                                if (menu !== content) {
+                                    menu.classList.remove('show');
+                                }
+                            });
+                            content.classList.toggle('show');
+                        }
+                    });
+                }
+            });
+
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const declineBtn = document.getElementById('decline-cookies');
+
+            if (!localStorage.getItem('cookieChoice') && cookieBanner) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('show');
+                }, 1000);
+            }
+
+            if (acceptBtn) {
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookieChoice', 'accepted');
+                    cookieBanner.classList.remove('show');
+                });
+            }
+
+            if (declineBtn) {
+                declineBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookieChoice', 'declined');
+                    cookieBanner.classList.remove('show');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
