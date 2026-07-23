@@ -3,6 +3,32 @@ layout: default
 title: Our Christian Vision
 ---
 
+<style>
+    /* Embedded CSS to guarantee formatting */
+    
+    /* Force ALL images to behave */
+    img { max-width: 100% !important; height: auto !important; }
+
+    /* Split Layout (Text beside Image - Christian Vision) */
+    .split-layout { display: flex; gap: 3rem; align-items: center; }
+    .split-text { flex: 1; }
+    .split-image { flex: 1; text-align: center; }
+    .split-image img { max-width: 350px !important; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 16px rgba(34, 49, 108, 0.15); }
+
+    /* Values Grid and Cards (Christian Vision) */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .value-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-top: 5px solid #C02C21; border-radius: 8px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); transition: transform 0.2s, box-shadow 0.2s; }
+    .value-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); }
+    .term-badge { display: inline-block; background-color: #22316C; color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .value-card h4 { color: #C02C21; font-size: 1.4rem; margin-bottom: 1rem; }
+    .value-card p { font-size: 1rem; margin-bottom: 0; color: #4a5568; }
+
+    /* Responsive fixes for mobile devices */
+    @media (max-width: 768px) {
+        .split-layout { flex-direction: column; gap: 1.5rem; }
+    }
+</style>
+
 <div class="page-header">
     <h1>Our Christian Vision</h1>
 </div>
@@ -10,65 +36,85 @@ title: Our Christian Vision
 <div class="content-panel">
     
     <!-- Vision Statement -->
-    <div class="vision-text">
-        <p>Rooted in Folkestone’s vibrant seaside community, we at St Eanswythe’s radiate God’s unconditional love by being inclusive, accepting, and supportive. Inspired by Jesus’ commandment, <strong>"love one another as I have loved you,"</strong> everyone is nurtured, enabling them to reach their full potential as caring, confident members of both our school family and global community.</p>
+    <div class="content-group">
+        <p style="font-size: 1.15rem; color: #22316C; line-height: 1.8;">Rooted in Folkestone’s vibrant seaside community, we at St Eanswythe’s radiate God’s unconditional love by being inclusive, accepting, and supportive.</p>
+        
+        <div class="notice-box" style="text-align: center; margin: 2rem 0; font-size: 1.05rem; line-height: 1.8; padding: 1.5rem; background-color: #fdf5f5; border-left: 5px solid #C02C21; border-radius: 0 8px 8px 0;">
+            <p style="font-size: 1.3rem; font-style: italic; margin: 0; color: #22316C; font-weight: 500;">Inspired by Jesus’ commandment,<br><strong>"Love one another as I have loved you,"</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 1rem; margin-bottom: 0; color: #22316C; font-weight: 500;">everyone is nurtured, enabling them to reach their full potential as caring, confident members of both our school family and global community.</p>
+        </div>
+        
         <p>We provide a rich, holistic education through a range of academic, physical, creative, and spiritual experiences. Our shared aim is for every child to approach their future life with awe, wonder, and enthusiasm; flourishing as the individuals that God intends them to be.</p>
     </div>
 
+    <hr style="border: 0; border-top: 2px solid #e2e8f0; margin: 3rem 0;">
+
     <!-- Bible Story Section -->
-    <div class="split-section">
+    <div class="content-group split-layout">
         <div class="split-text">
-            <h2>Our School Bible Story</h2>
-            <h3>Zacchaeus (Luke 19:1-10)</h3>
+            <h3>Our School Bible Story</h3>
+            <h4 style="color: #22316C; margin-top: -0.5rem; margin-bottom: 1rem;">Zacchaeus (Luke 19:1-10)</h4>
             <p>Our foundational Bible story is that of Zacchaeus the tax collector. Despite his mistakes and being treated as an outsider by society, Jesus showed him unconditional love, acceptance, and forgiveness. Jesus looked up into the sycamore tree and called Zacchaeus by name, inviting himself into his home.</p>
             <p>This transformative encounter reflects our school’s deep commitment to inclusivity. Just as Zacchaeus was nurtured and inspired to change his ways to give generously back to the community, we strive to accept and support every child exactly as they are, helping them to flourish into caring, confident individuals.</p>
         </div>
         <div class="split-image">
-            <img src="images/zacchaeus.png" alt="Zacchaeus in the tree">
+            <!-- Inline style added here to strictly enforce Zacchaeus image size -->
+            <img src="images/zacchaeus.png" alt="Zacchaeus in the tree" style="max-width: 350px !important; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 16px rgba(34, 49, 108, 0.15);">
         </div>
     </div>
 
-    <!-- School Values Section -->
-    <div class="values-header">
-        <h2>Our Six School Values</h2>
-        <p>These core Christian values, rooted deeply in scripture, guide our daily life and interactions at St Eanswythe's. We focus on one specific value each term throughout the academic year.</p>
-    </div>
-    
-    <div class="values-image-container">
-        <img src="images/values.png" alt="Illustration of our six Christian Values">
-    </div>
+    <hr style="border: 0; border-top: 2px solid #e2e8f0; margin: 3rem 0;">
 
-    <ul class="term-values-list">
-        <li>
-            <div class="term-title">Term 1</div>
-            <div class="term-value">Generosity</div>
-            <div class="term-story">Focused on the story of <strong>The Widow's Gift</strong> (Mark 12:41-44).</div>
-        </li>
-        <li>
-            <div class="term-title">Term 2</div>
-            <div class="term-value">Compassion</div>
-            <div class="term-story">Focused on the story of <strong>The Good Samaritan</strong> (Luke 10:25-37).</div>
-        </li>
-        <li>
-            <div class="term-title">Term 3</div>
-            <div class="term-value">Honesty</div>
-            <div class="term-story">Focused on <strong>The Parable of the Pharisee and the Tax Collector</strong> (Luke 18:9-14).</div>
-        </li>
-        <li>
-            <div class="term-title">Term 4</div>
-            <div class="term-value">Forgiveness</div>
-            <div class="term-story">Focused on the story of <strong>The Prodigal Son</strong> (Luke 15:11-32).</div>
-        </li>
-        <li>
-            <div class="term-title">Term 5</div>
-            <div class="term-value">Respect</div>
-            <div class="term-story">Focused on the teaching to <strong>Give to Caesar what is Caesar's!</strong> (Mark 12:17).</div>
-        </li>
-        <li>
-            <div class="term-title">Term 6</div>
-            <div class="term-value">Perseverance</div>
-            <div class="term-story">Focused on the story of <strong>The Four Friends</strong> (Mark 2:1-12).</div>
-        </li>
-    </ul>
+    <!-- School Values Section -->
+    <div class="content-group">
+        <div class="values-header" style="text-align: center; margin-bottom: 2rem;">
+            <h3>Our Six School Values</h3>
+            <p>These core Christian values, rooted deeply in scripture, guide our daily life and interactions at St Eanswythe's. We focus on one specific value each term throughout the academic year.</p>
+        </div>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <!-- Inline style added here to strictly enforce the Values image size and centering -->
+            <img src="images/values.png" alt="Illustration of our six Christian Values" style="max-width: 600px !important; width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+        </div>
+
+        <!-- Values Grid -->
+        <div class="values-grid">
+            <div class="value-card">
+                <span class="term-badge">Term 1</span>
+                <h4>Generosity</h4>
+                <p>Focused on the story of<br><strong>The Widow's Gift</strong><br><span style="font-size: 0.9em; color: #718096;">(Mark 12:41-44)</span></p>
+            </div>
+            
+            <div class="value-card">
+                <span class="term-badge">Term 2</span>
+                <h4>Compassion</h4>
+                <p>Focused on the story of<br><strong>The Good Samaritan</strong><br><span style="font-size: 0.9em; color: #718096;">(Luke 10:25-37)</span></p>
+            </div>
+            
+            <div class="value-card">
+                <span class="term-badge">Term 3</span>
+                <h4>Honesty</h4>
+                <p>Focused on<br><strong>The Pharisee & Tax Collector</strong><br><span style="font-size: 0.9em; color: #718096;">(Luke 18:9-14)</span></p>
+            </div>
+            
+            <div class="value-card">
+                <span class="term-badge">Term 4</span>
+                <h4>Forgiveness</h4>
+                <p>Focused on the story of<br><strong>The Prodigal Son</strong><br><span style="font-size: 0.9em; color: #718096;">(Luke 15:11-32)</span></p>
+            </div>
+            
+            <div class="value-card">
+                <span class="term-badge">Term 5</span>
+                <h4>Respect</h4>
+                <p>Focused on the teaching<br><strong>Give to Caesar what is Caesar's</strong><br><span style="font-size: 0.9em; color: #718096;">(Mark 12:17)</span></p>
+            </div>
+            
+            <div class="value-card">
+                <span class="term-badge">Term 6</span>
+                <h4>Perseverance</h4>
+                <p>Focused on the story of<br><strong>The Four Friends</strong><br><span style="font-size: 0.9em; color: #718096;">(Mark 2:1-12)</span></p>
+            </div>
+        </div>
+    </div>
 
 </div>
