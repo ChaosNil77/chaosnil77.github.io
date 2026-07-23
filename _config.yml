@@ -1,0 +1,2 @@
+# Forces GitHub Pages to run Jekyll processing
+markdown: kramdown
