@@ -1,169 +1,38 @@
----
----
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-/* ==========================================================================
-   1. ROOT VARIABLES & BASE SETUP
-   ========================================================================== */
-:root {
-  --primary-color: #0056b3;     /* School Blue */
-  --secondary-color: #ffc107;   /* Accent Gold/Yellow */
-  --dark-text: #222222;
-  --light-bg: #f8f9fa;
-  --white: #ffffff;
-  --border-color: #e0e0e0;
-  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-}
+    <!-- Absolute root path ensures CSS loads on subpages -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    <!-- Site Header -->
+    <header>
+        <h1>{{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+    </header>
 
-body {
-  font-family: var(--font-main);
-  line-height: 1.6;
-  color: var(--dark-text);
-  background-color: var(--light-bg);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/classes/class-6/class-6.html">Class 6</a></li>
+        </ul>
+    </nav>
 
-/* ==========================================================================
-   2. HEADER & NAVIGATION
-   ========================================================================== */
-header {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 1.5rem 1rem;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+    <!-- Main Content Area -->
+    <main class="container">
+        {{ content }}
+    </main>
 
-header h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
+    <!-- Site Footer -->
+    <footer>
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    </footer>
 
-nav {
-  background-color: #004085;
-  padding: 0.5rem;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-nav a {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* ==========================================================================
-   3. MAIN CONTENT CONTAINER
-   ========================================================================== */
-main, .container {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  flex: 1; /* Keeps footer pushed down */
-}
-
-/* Page Titles & Subheadings */
-h1, h2, h3 {
-  color: var(--primary-color);
-  margin-bottom: 0.8rem;
-}
-
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid var(--light-bg); padding-bottom: 0.3rem; }
-h3 { font-size: 1.2rem; margin-top: 1rem; }
-
-p {
-  margin-bottom: 1rem;
-}
-
-ul, ol {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-}
-
-li {
-  margin-bottom: 0.4rem;
-}
-
-hr {
-  border: 0;
-  height: 1px;
-  background: var(--border-color);
-  margin: 1.5rem 0;
-}
-
-/* ==========================================================================
-   4. ANNOUNCEMENT BOXES & CALLOUTS
-   ========================================================================== */
-.intro-text {
-  font-size: 1.1rem;
-  background-color: #e9f5ff;
-  border-left: 4px solid var(--primary-color);
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 0 4px 4px 0;
-}
-
-.notice-box {
-  background-color: #fff3cd;
-  border: 1px solid #ffeeba;
-  border-left: 4px solid var(--secondary-color);
-  padding: 1rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-/* ==========================================================================
-   5. FOOTER
-   ========================================================================== */
-footer {
-  background-color: var(--primary-color);
-  color: var(--white);
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  margin-top: auto;
-}
-
-footer a {
-  color: var(--secondary-color);
-}
-
-/* ==========================================================================
-   6. RESPONSIVE MOBILE MEDIA QUERY
-   ========================================================================== */
-@media (max-width: 600px) {
-  main, .container {
-    margin: 1rem;
-    padding: 1rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-}
+</body>
+</html>
