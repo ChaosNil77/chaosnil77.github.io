@@ -1,33 +1,29 @@
 ---
 ---
 
-/* Core Variables & Global Resets */
+/* General Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #22316C;
     background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
-h1, h2, h3 {
+/* Typography */
+h1, h2, h3, h4 {
     color: #C02C21;
     margin-bottom: 1rem;
 }
-
 p {
     margin-bottom: 1rem;
 }
 
-/* Header & Search */
+/* Header & Logo */
 header {
     background-color: #f9f9f9;
     color: #22316C;
@@ -38,56 +34,48 @@ header {
     max-width: 1100px; 
     margin: 0 auto;    
 }
-
 .header-left {
     display: flex;
     align-items: center;
 }
-
 .logo-link {
     display: block;
     margin-right: 2rem;
     transition: transform 0.2s ease;
 }
-
 .logo-link:hover {
     transform: scale(1.02);
 }
-
 .header-logo {
     max-width: 140px; 
     height: auto;
     display: block;
 }
-
 .header-text {
     text-align: left;
 }
-
 header h1 {
     color: #C02C21;
     margin: 0;
     font-size: 3rem; 
     line-height: 1.2;
 }
-
 .subtitle {
     margin: 0.2rem 0 0 0;
     font-size: 1.5rem; 
     font-weight: 600;
 }
-
 .strapline {
     margin: 0;
     font-style: italic;
     font-size: 1.05rem;
 }
 
+/* Header Search Box */
 .header-search form {
     display: flex;
     align-items: center;
 }
-
 .header-search input[type="text"] {
     padding: 0.4rem 1rem; 
     border: 2px solid #C02C21; 
@@ -98,11 +86,9 @@ header h1 {
     width: 160px; 
     color: #22316C;
 }
-
 .header-search input[type="text"]:focus {
     border-color: #22316C; 
 }
-
 .header-search button {
     padding: 0.4rem 1rem; 
     background-color: #C02C21; 
@@ -116,12 +102,10 @@ header h1 {
     justify-content: center;
     transition: background-color 0.3s, border-color 0.3s;
 }
-
 .header-search button:hover {
     background-color: #a0241b; 
     border-color: #a0241b;
 }
-
 .header-search button svg {
     stroke: currentColor;
 }
@@ -210,158 +194,122 @@ nav {
     }
 }
 
-/* Layout */
+/* Main Layout */
 .container {
-    max-width: 1100px;
+    max-width: 1000px; 
     margin: 0 auto;
     padding: 2rem;
-    flex: 1;
 }
 
-.hero-gallery {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    border-radius: 16px; 
+/* Page Header */
+.page-header {
     margin-bottom: 2rem;
     border-bottom: 4px solid #C02C21;
-    overflow: hidden;
-    background-color: #1a224c;
-    box-shadow: 0 4px 8px rgba(34, 49, 108, 0.15);
+    padding-bottom: 1rem;
 }
 
-.hero-gallery .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #22316C;
+    margin-bottom: 0.5rem;
 }
 
-.hero-gallery .slide-1 {
-    z-index: 1;
-    opacity: 1;
-}
-
-.hero-gallery .slide-2 {
-    z-index: 2;
-    opacity: 0;
-    animation: crossfade 12s infinite ease-in-out;
-}
-
-@keyframes crossfade {
-    0% { opacity: 0; }
-    16.66% { opacity: 1; }
-    50% { opacity: 1; }
-    66.66% { opacity: 0; }
-    100% { opacity: 0; }
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
+/* Content Panels */
+.content-panel {
+    background: white;
+    padding: 2.5rem 3rem 3rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
     margin-bottom: 3rem;
 }
 
-.panel {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(34, 49, 108, 0.1);
-}
-
-.welcome-panel {
-    background: white;
-    border-radius: 12px;
-    border: 2px solid #C02C21;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(34, 49, 108, 0.1);
-}
-
-.welcome-header {
-    background-color: #C02C21;
-    padding: 1.5rem 1.5rem 1.5rem 230px; 
-    border-radius: 9px 9px 0 0;
-    min-height: 110px;
+/* Church Layout: Two Columns */
+.church-layout {
     display: flex;
-    align-items: center;
+    gap: 3rem;
+    align-items: flex-start;
 }
 
-.welcome-header h2 {
-    color: white;
-    margin: 0;
-    font-size: 1.8rem;
-    line-height: 1.2;
+.church-main {
+    flex: 1;
 }
 
-.welcome-content {
-    padding: 1.2rem 2.5rem 2rem 2.5rem; 
-    color: #4a5568; 
-}
-
-.headteacher-photo {
-    float: left; 
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 4px solid white;
-    margin-top: -105px;
-    margin-right: 15px; 
-    margin-bottom: 5px; 
-    position: relative;
-    z-index: 5;
-    shape-outside: circle(50%); 
-    shape-margin: 50px; 
-    object-fit: cover;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-}
-
-.welcome-intro {
-    font-weight: 600;
-    color: #4a5568;
-}
-
-.highlight-blue {
-    color: #1a224c; 
-    font-weight: bold;
+.church-main p {
     font-size: 1.05rem;
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
 }
 
-.notice-board {
+.featured-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Sidebar Links */
+.church-sidebar {
+    width: 320px;
     background-color: #fdf5f5;
-    border-left: 4px solid #C02C21;
+    padding: 1.8rem;
+    border-left: 5px solid #C02C21;
+    border-radius: 0 8px 8px 0;
+    flex-shrink: 0;
 }
 
-.notice-board ul {
-    list-style-type: none;
+.church-sidebar h3 {
+    color: #C02C21;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
 }
 
-.notice-board li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #e2e8f0;
+.link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.notice-board li:last-child {
+.link-list li {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #cbd5e0;
+}
+
+.link-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
     border-bottom: none;
 }
 
-.date-badge {
-    font-weight: bold;
+.link-list a {
     color: #22316C;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
     display: block;
-    font-size: 0.9em;
+    line-height: 1.4;
 }
 
-/* Footer & Banner */
+.link-list a:hover {
+    color: #C02C21;
+    text-decoration: underline;
+}
+
+/* Footer */
 footer {
     background-color: #1a224c;
     color: white;
     padding: 1.5rem 2rem; 
     border-top: 3px solid #C02C21;
     line-height: 1.3; 
-    margin-top: auto;
 }
 
 .footer-container {
@@ -376,13 +324,12 @@ footer {
 .footer-text {
     text-align: center;
 }
-
-.footer-text strong, .footer-text p {
+.footer-text strong {
     color: white;
 }
-
 .footer-text p {
     margin-bottom: 0.3rem; 
+    color: white;
 }
 
 .footer-buttons {
@@ -392,18 +339,17 @@ footer {
     gap: 1rem;
     align-items: center;
 }
-
 .footer-btn {
     height: 45px; 
     width: auto;
     border-radius: 6px;
     transition: transform 0.2s ease;
 }
-
 .footer-btn:hover {
     transform: scale(1.05);
 }
 
+/* Cookie Banner Styling */
 .cookie-banner {
     position: fixed;
     bottom: 0;
@@ -471,11 +417,22 @@ footer {
     background-color: #e2e8f0;
 }
 
-/* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-    .content-grid {
-        grid-template-columns: 1fr;
+/* Responsive Design - Mobile Styling */
+@media (max-width: 850px) {
+    .church-layout {
+        flex-direction: column;
+        gap: 2rem;
     }
+    .church-sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 5px solid #C02C21;
+        border-radius: 0 0 8px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Header Layout */
     header {
         flex-direction: column;
         align-items: center; 
@@ -508,6 +465,8 @@ footer {
     .subtitle {
         font-size: 1.3rem; 
     }
+    
+    /* Mobile Search Box */
     .header-search {
         width: 100%;
     }
@@ -519,9 +478,8 @@ footer {
         width: 100%;
         flex-grow: 1;
     }
-    .hero-gallery {
-        height: 200px;
-    }
+
+    /* Mobile Navigation Toggle */
     .mobile-menu-toggle {
         display: flex;
         align-items: center;
@@ -563,29 +521,13 @@ footer {
         font-size: 0.9em;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
-    .welcome-header {
-        padding: 1.2rem 1rem 1.2rem 100px; 
-        text-align: left;
-        min-height: 90px;
-        align-items: center;
-    }
-    .welcome-header h2 {
-        font-size: 1.3rem;
-    }
-    .headteacher-photo {
-        float: none; 
-        position: absolute;
-        top: 1.2rem; 
-        left: 1rem;
-        margin: 0; 
-        width: 75px;
-        height: 75px;
-        border: 2px solid white;
-        shape-outside: none; 
-    }
-    .welcome-content {
+
+    /* Mobile Page Content Updates */
+    .content-panel {
         padding: 1.5rem;
     }
+
+    /* Mobile Footer Updates */
     .footer-container {
         flex-direction: column;
     }
@@ -594,6 +536,8 @@ footer {
         margin-top: 1.5rem;
         justify-content: center;
     }
+
+    /* Mobile Cookie Banner Layout */
     .cookie-banner {
         flex-direction: column;
         text-align: center;
