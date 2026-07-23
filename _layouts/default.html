@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-    <!-- Points directly to style.css in the root directory -->
-    <link rel="stylesheet" href="/style.css">
+    <!-- Dynamically resolves /style.css at the site root -->
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 <body>
 
@@ -19,8 +19,8 @@
     <!-- Navigation Menu -->
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/classes/class-6/class-6.html">Class 6</a></li>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/classes/class-6/class-6.html' | relative_url }}">Class 6</a></li>
         </ul>
     </nav>
 
