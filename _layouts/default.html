@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title | default: "St. Eanswythe's Primary School" }}</title>
-
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title | default: "St. Eanswythe's" }}</title>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ '/home/images/stelogo.png' | relative_url }}">
 
-    <!-- CSS stylesheet link -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <!-- Header -->
     <header>
         <div class="header-left">
-            <a href="{{ '/' | relative_url }}" class="logo-link" title="Go to homepage">
+            <a href="{{ '/index.html' | relative_url }}" class="logo-link" title="Go to homepage">
                 <img src="{{ '/home/images/stelogo.png' | relative_url }}" alt="St. Eanswythe's School Logo" class="header-logo">
             </a>
             <div class="header-text">
@@ -40,7 +40,7 @@
         </div>
     </header>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav>
         <button class="mobile-menu-toggle">
             <span>☰ Menu</span>
@@ -62,7 +62,7 @@
                     <a href="{{ '/our-school/financial-info-benchmarking/financial-info-benchmarking.html' | relative_url }}">Financial Information and Benchmarking</a>
                 </div>
             </li>
-
+            
             <li class="dropdown">
                 <a href="#classes">Classes ▾</a>
                 <div class="dropdown-content">
@@ -76,7 +76,7 @@
                     <a href="{{ '/classes/class-6/class-6.html' | relative_url }}">Class 6</a>
                 </div>
             </li>
-
+            
             <li class="dropdown">
                 <a href="#parents">Parents and Carers ▾</a>
                 <div class="dropdown-content">
@@ -91,7 +91,7 @@
                     <a href="{{ '/parents-carers/attendance/attendance.html' | relative_url }}">Attendance</a>
                 </div>
             </li>
-
+            
             <li class="dropdown">
                 <a href="#safeguarding">Safeguarding ▾</a>
                 <div class="dropdown-content">
@@ -99,18 +99,18 @@
                     <a href="{{ '/safeguarding/online-safeguarding/online-safeguarding.html' | relative_url }}">Online Safeguarding</a>
                 </div>
             </li>
-
+            
             <li class="dropdown">
                 <a href="{{ '/church/church.html' | relative_url }}">Church</a>
             </li>
-
+            
             <li class="dropdown">
                 <a href="{{ '/contact-us/contact-us.html' | relative_url }}">Contact Us</a>
             </li>
         </ul>
     </nav>
 
-    <!-- Page Body Container -->
+    <!-- Main Dynamic Content -->
     <main class="container">
         {{ content }}
     </main>
@@ -124,7 +124,7 @@
                 <p>Tel: 01303 255516 | Email: office@st-eanswythes.kent.sch.uk</p>
                 <p style="margin-top: 1rem; font-size: 0.8em; color: #a0aec0;">&copy; {{ 'now' | date: "%Y" }} St. Eanswythe's School. All rights reserved.</p>
             </div>
-
+            
             <div class="footer-buttons">
                 <a href="https://www.ceop.police.uk/ceop-reporting/" target="_blank">
                     <img src="{{ '/home/images/ceop-button.png' | relative_url }}" alt="CEOP Reporting" class="footer-btn">
@@ -145,7 +145,6 @@
         </div>
     </div>
 
-    <!-- Mobile Menu and Cookie Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const dropdowns = document.querySelectorAll('.dropdown');
@@ -165,12 +164,14 @@
                 if (content) {
                     triggerLink.addEventListener('click', (e) => {
                         if (window.innerWidth <= 768) {
-                            e.preventDefault();
+                            e.preventDefault(); 
+
                             document.querySelectorAll('.dropdown-content').forEach(menu => {
                                 if (menu !== content) {
                                     menu.classList.remove('show');
                                 }
                             });
+
                             content.classList.toggle('show');
                         }
                     });
