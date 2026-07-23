@@ -3,6 +3,32 @@ layout: default
 title: Our Christian Vision
 ---
 
+<style>
+    /* NUCLEAR OPTION: Embedded CSS to bypass GitHub Cache */
+    
+    /* Force ALL images to behave */
+    img { max-width: 100% !important; height: auto !important; }
+
+    /* Split Layout (Text beside Image - Christian Vision) */
+    .split-layout { display: flex; gap: 3rem; align-items: center; }
+    .split-text { flex: 1; }
+    .split-image { flex: 1; text-align: center; }
+    .split-image img { max-width: 350px !important; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 16px rgba(34, 49, 108, 0.15); }
+
+    /* Values Grid and Cards (Christian Vision) */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .value-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-top: 5px solid #C02C21; border-radius: 8px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); transition: transform 0.2s, box-shadow 0.2s; }
+    .value-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); }
+    .term-badge { display: inline-block; background-color: #22316C; color: white; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-bottom: 1rem; }
+    .value-card h4 { color: #C02C21; font-size: 1.4rem; margin-bottom: 1rem; }
+    .value-card p { font-size: 1rem; margin-bottom: 0; color: #4a5568; }
+
+    /* Responsive fixes for mobile devices */
+    @media (max-width: 768px) {
+        .split-layout { flex-direction: column; gap: 1.5rem; }
+    }
+</style>
+
 <div class="page-header">
     <h1>Our Christian Vision</h1>
 </div>
@@ -13,9 +39,9 @@ title: Our Christian Vision
     <div class="content-group">
         <p style="font-size: 1.15rem; color: #22316C; line-height: 1.8;">Rooted in Folkestone’s vibrant seaside community, we at St Eanswythe’s radiate God’s unconditional love by being inclusive, accepting, and supportive.</p>
         
-        <div class="notice-box" style="text-align: center; margin: 2rem 0;">
-            <p style="font-size: 1.3rem; font-style: italic;">Inspired by Jesus’ commandment,<br><strong>"Love one another as I have loved you,"</strong></p>
-            <p style="margin-top: 0.5rem; font-size: 1rem;">everyone is nurtured, enabling them to reach their full potential as caring, confident members of both our school family and global community.</p>
+        <div class="notice-box" style="text-align: center; margin: 2rem 0; font-size: 1.05rem; line-height: 1.8; padding: 1.5rem; background-color: #fdf5f5; border-left: 5px solid #C02C21; border-radius: 0 8px 8px 0;">
+            <p style="font-size: 1.3rem; font-style: italic; margin: 0; color: #22316C; font-weight: 500;">Inspired by Jesus’ commandment,<br><strong>"Love one another as I have loved you,"</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 1rem; margin-bottom: 0; color: #22316C; font-weight: 500;">everyone is nurtured, enabling them to reach their full potential as caring, confident members of both our school family and global community.</p>
         </div>
         
         <p>We provide a rich, holistic education through a range of academic, physical, creative, and spiritual experiences. Our shared aim is for every child to approach their future life with awe, wonder, and enthusiasm; flourishing as the individuals that God intends them to be.</p>
@@ -46,7 +72,7 @@ title: Our Christian Vision
         </div>
         
         <div style="text-align: center; margin-bottom: 3rem;">
-            <img src="images/values.png" alt="Illustration of our six Christian Values" style="max-width: 600px; width: 100%; height: auto; border-radius: 8px;">
+            <img src="images/values.png" alt="Illustration of our six Christian Values" style="max-width: 600px !important; width: 100%; height: auto; border-radius: 8px;">
         </div>
 
         <!-- Values Grid -->
