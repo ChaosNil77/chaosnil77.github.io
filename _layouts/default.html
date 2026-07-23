@@ -8,8 +8,8 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ '/home/images/stelogo.png' | relative_url }}">
 
-    <!-- Dynamically calculated relative path to stylesheet -->
-    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+    <!-- CSS Link with Cache Buster to force updates -->
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}?v=1">
 </head>
 <body>
 
