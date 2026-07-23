@@ -1,9 +1,5 @@
 /* ========================================= */
-/* St Eanswythe's Custom Page Styles         */
-/* ========================================= */
-
-/* ========================================= */
-/* 1. Christian Vision Page                  */
+/* Christian Vision Page Styles              */
 /* ========================================= */
 
 /* Split Layout (Text beside Image) */
@@ -20,107 +16,7 @@
 .value-card h4 { color: #C02C21; font-size: 1.4rem; margin-bottom: 1rem; }
 .value-card p { font-size: 1rem; margin-bottom: 0; color: #4a5568; }
 
-/* Responsive fixes for Christian Vision */
+/* Responsive fixes for mobile devices */
 @media (max-width: 768px) {
     .split-layout { flex-direction: column; gap: 1.5rem; }
-}
-
-
-/* ========================================= */
-/* 2. Staff Directory Page                   */
-/* ========================================= */
-
-.staff-panel {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Card styling for each department */
-.staff-group {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-top: 4px solid #22316C;
-    border-radius: 8px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.staff-group h3 {
-    color: #C02C21;
-    margin-top: 0;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #edf2f7;
-    margin-bottom: 1.5rem;
-}
-
-/* Standard List Styling */
-.staff-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.staff-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 0;
-    border-bottom: 1px dashed #e2e8f0;
-}
-
-.staff-list li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-/* Typography for Names and Roles */
-.staff-name {
-    font-weight: bold;
-    color: #2d3748;
-    font-size: 1.1rem;
-}
-
-.staff-role-label {
-    color: #718096;
-    font-size: 0.95rem;
-    text-align: right;
-    max-width: 60%;
-}
-
-/* Multi-column Grid specifically for Teaching Assistants */
-.multicolumn-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.multicolumn-list li {
-    display: block; /* Overrides the flexbox for standard lists */
-    border-bottom: none;
-    padding: 0.5rem;
-    background-color: #f8fafc;
-    border-radius: 6px;
-    text-align: center;
-}
-
-.multicolumn-list .staff-name {
-    display: block;
-}
-
-/* Mobile Responsiveness for Staff */
-@media (max-width: 600px) {
-    .staff-list li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-    }
-    .staff-role-label {
-        text-align: left;
-        max-width: 100%;
-        font-style: italic;
-    }
-    .staff-group {
-        padding: 1.5rem;
-    }
 }
