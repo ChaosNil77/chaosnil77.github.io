@@ -1,4 +1,5 @@
 # Forces GitHub Pages to run Jekyll processing
+title: "St Eanswythe's"
 markdown: kramdown
 url: "https://chaosnil77.github.io"
 baseurl: ""
