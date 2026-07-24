@@ -1482,3 +1482,13 @@ footer {
         height: 400px; /* Gives the map a fixed height when stacked */
     }
 }
+
+/* --- SCHOOL CLUBS PAGE --- */
+.club-note {
+    display: block;
+    font-size: 0.85rem;
+    color: #718096;
+    font-style: italic;
+    margin-top: 0.2rem;
+    font-weight: normal;
+}
