@@ -1136,3 +1136,58 @@ footer {
 .data-table tbody tr:hover {
     background-color: #f8fafc;
 }
+
+/* --- SEND PAGE / SIDEBAR LAYOUT --- */
+
+.layout-with-sidebar {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.main-text {
+    flex: 1; /* Takes up all the remaining space on the left */
+}
+
+.sidebar-links {
+    width: 320px; /* Locks the right column to a fixed width */
+    flex-shrink: 0;
+    background-color: #f8fafc;
+    padding: 1.8rem;
+    border-radius: 8px;
+    border-top: 5px solid #22316C;
+}
+
+.sidebar-links h3 {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    color: #C02C21;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+/* Forces the document buttons to stack vertically instead of wrapping */
+.vertical-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vertical-links .doc-btn {
+    width: 100%;
+    justify-content: flex-start; /* Keeps the icon and text aligned to the left */
+}
+
+/* Responsive: Stacks the columns on top of each other on smaller screens */
+@media (max-width: 850px) {
+    .layout-with-sidebar {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .sidebar-links {
+        width: 100%;
+        border-top: none;
+        border-left: 5px solid #22316C;
+    }
+}
