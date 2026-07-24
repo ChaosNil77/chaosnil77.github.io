@@ -1012,3 +1012,29 @@ footer {
     font-weight: 600;
     font-size: 1.05rem;
 }
+
+/* --- GOVERNORS PAGE / SHARED COMPONENTS --- */
+
+/* Single Box for Standard Bullet Lists */
+.single-box-list {
+    background-color: #f8fafc;
+    padding: 2rem 2rem 2rem 3rem;
+    border-radius: 8px;
+    border-left: 4px solid #22316C;
+    color: #4a5568;
+}
+
+.single-box-list ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+}
+
+.single-box-list li {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+.single-box-list li:last-child {
+    margin-bottom: 0;
+}
