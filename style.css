@@ -1083,3 +1083,56 @@ footer {
 .policy-link:hover svg {
     transform: scale(1.1);
 }
+
+/* --- INSPECTION & RESULTS PAGE / TABLES --- */
+
+.table-subtitle {
+    font-size: 0.95rem;
+    color: #718096;
+    font-style: italic;
+    margin-top: -1rem; /* Pulls it up closer to the h3 heading */
+    margin-bottom: 1rem;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Allows the table to swipe sideways on tiny phone screens */
+    margin-bottom: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(34, 49, 108, 0.05);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    text-align: left;
+    min-width: 600px; /* Ensures the table doesn't squish too tightly on mobile */
+}
+
+.data-table thead {
+    background-color: #22316C;
+}
+
+.data-table th {
+    color: #ffffff;
+    padding: 1.2rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.data-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #4a5568;
+}
+
+/* Removes the border on the very last row so it looks clean */
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Adds a subtle hover effect to rows for easier reading */
+.data-table tbody tr:hover {
+    background-color: #f8fafc;
+}
