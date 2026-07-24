@@ -957,3 +957,58 @@ footer {
         padding: 1.5rem;
     }
 }
+
+/* --- ADMISSIONS PAGE --- */
+
+/* Document Download Links */
+.doc-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.doc-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f8fafc;
+    color: #22316C;
+    border: 2px solid #e2e8f0;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.doc-btn svg {
+    margin-right: 0.5rem;
+    fill: currentColor;
+}
+
+.doc-btn:hover {
+    background-color: #22316C;
+    color: #ffffff;
+    border-color: #22316C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(34, 49, 108, 0.15);
+}
+
+/* Important Highlight Box */
+.highlight-box {
+    background-color: #fdf5f5;
+    border-left: 5px solid #C02C21;
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-box p {
+    margin: 0;
+    color: #a0241b;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
