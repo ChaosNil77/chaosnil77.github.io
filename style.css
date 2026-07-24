@@ -1492,3 +1492,31 @@ footer {
     margin-top: 0.2rem;
     font-weight: normal;
 }
+
+/* ========================================= */
+/* --- INSTAGRAM WIDGET GRID ---             */
+/* ========================================= */
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    align-items: start;
+}
+
+/* Forces the stubborn Instagram iframe to shrink below its 326px limit */
+.instagram-grid iframe.instagram-media, 
+.instagram-grid blockquote.instagram-media {
+    min-width: 10% !important; /* Overrides the Instagram limit */
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Stacks the posts on top of each other on mobile phones */
+@media (max-width: 850px) {
+    .instagram-grid {
+        grid-template-columns: 1fr;
+    }
+}
