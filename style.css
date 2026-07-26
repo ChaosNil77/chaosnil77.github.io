@@ -1554,3 +1554,59 @@ footer {
     background-color: #ebf8ff;
     border-color: #3182ce;
 }
+
+/* ========================================= */
+/* --- NEWSLETTER DROP-DOWN STRIP ---        */
+/* ========================================= */
+
+.archive-dropdown {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    margin-top: 2.5rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.archive-dropdown summary {
+    background-color: #22316C; /* St Eanswythe Blue */
+    color: white;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    list-style: none; /* Removes the default black arrow in most browsers */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hide the default webkit triangle (for Safari/Chrome) */
+.archive-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Add our own custom red arrow that flips when open */
+.archive-dropdown summary::after {
+    content: '▼';
+    font-size: 0.9rem;
+    color: #C02C21; /* St Eanswythe Red */
+    transition: transform 0.3s ease;
+}
+
+.archive-dropdown[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.archive-dropdown[open] {
+    box-shadow: 0 4px 6px rgba(34, 49, 108, 0.1);
+    border-color: #22316C;
+}
+
+/* Adjust the inner links to sit nicely inside the open strip */
+.archive-dropdown .doc-links {
+    padding: 1.5rem 1rem 0.5rem 1rem;
+    margin-bottom: 0;
+    border-bottom: none;
+}
