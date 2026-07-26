@@ -1492,3 +1492,65 @@ footer {
     margin-top: 0.2rem;
     font-weight: normal;
 }
+
+/* ========================================= */
+/* --- CURRICULUM PAGE GRIDS ---             */
+/* ========================================= */
+
+/* Main Subject Cards (Bold & Colorful) */
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.subject-btn {
+    background-color: #2b6cb0; /* Adjust to match your school blue if needed */
+    color: #ffffff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.subject-btn:hover {
+    background-color: #1a4971;
+    transform: translateY(-3px);
+}
+
+/* Class Map Buttons (Clean & Outlined) */
+.class-map-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.class-map-btn {
+    background-color: #f7fafc;
+    border: 2px solid #cbd5e0;
+    color: #2d3748;
+    padding: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.class-map-btn:hover {
+    background-color: #ebf8ff;
+    border-color: #3182ce;
+}
