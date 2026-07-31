@@ -448,6 +448,26 @@ nav {
     margin-right: 0.6rem;
 }
 
+/* Small Notice Board Button */
+.notice-btn-small {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 10px;
+    font-size: 0.85em;
+    background-color: #f8fafc;
+    color: #22316C;
+    text-decoration: none;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.notice-btn-small:hover {
+    background-color: #22316C;
+    color: #ffffff;
+    border-color: #22316C;
+}
+
 /* Church Layout: Two Columns */
 .church-layout {
     display: flex;
