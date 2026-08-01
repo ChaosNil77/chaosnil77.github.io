@@ -213,7 +213,7 @@ nav {
     padding: 2rem;
 }
 
-/* Hero Photo Gallery (Homepage Slideshow) */
+/* Hero Photo Gallery (Homepage Slideshow - Updated for 3 Images) */
 .hero-gallery {
     position: relative;
     width: 100%;
@@ -235,25 +235,21 @@ nav {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    opacity: 0; /* Base state is hidden */
+    animation: crossfade3 15s infinite;
 }
 
-.hero-gallery .slide-1 {
-    z-index: 1;
-    opacity: 1;
-}
+/* Negative delays ensure the animation starts correctly on page load */
+.hero-gallery .slide-1 { animation-delay: 0s; }
+.hero-gallery .slide-2 { animation-delay: -10s; }
+.hero-gallery .slide-3 { animation-delay: -5s; }
 
-.hero-gallery .slide-2 {
-    z-index: 2;
-    opacity: 0;
-    animation: crossfade 12s infinite ease-in-out;
-}
-
-@keyframes crossfade {
-    0% { opacity: 0; }
-    16.66% { opacity: 1; }
-    50% { opacity: 1; }
-    66.66% { opacity: 0; }
-    100% { opacity: 0; }
+@keyframes crossfade3 {
+    0% { opacity: 1; }
+    22% { opacity: 1; }
+    33% { opacity: 0; }
+    89% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* Grid Layout for Homepage Content */
