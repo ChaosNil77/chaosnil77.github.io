@@ -213,7 +213,7 @@ nav {
     padding: 2rem;
 }
 
-/* Hero Photo Gallery (Homepage Slideshow - Updated for 3 Images) */
+/* Hero Photo Gallery (Homepage Slideshow) */
 .hero-gallery {
     position: relative;
     width: 100%;
@@ -235,11 +235,10 @@ nav {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0; /* Base state is hidden */
+    opacity: 0;
     animation: crossfade3 15s infinite;
 }
 
-/* Negative delays ensure the animation starts correctly on page load */
 .hero-gallery .slide-1 { animation-delay: 0s; }
 .hero-gallery .slide-2 { animation-delay: -10s; }
 .hero-gallery .slide-3 { animation-delay: -5s; }
@@ -859,13 +858,11 @@ footer {
 
 /* --- OUR CHRISTIAN VISION PAGE --- */
 
-/* Split Layout (Text beside Image) */
 .split-layout { display: flex; gap: 3rem; align-items: center; }
 .split-text { flex: 1; }
 .split-image { flex: 1; text-align: center; }
 .split-image img { max-width: 350px !important; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 16px rgba(34, 49, 108, 0.15); }
 
-/* Values Grid and Cards */
 .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
 .value-card { background-color: #ffffff; border: 1px solid #e2e8f0; border-top: 5px solid #C02C21; border-radius: 8px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); transition: transform 0.2s, box-shadow 0.2s; }
 .value-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); }
@@ -873,7 +870,6 @@ footer {
 .value-card h4 { color: #C02C21; font-size: 1.4rem; margin-bottom: 1rem; }
 .value-card p { font-size: 1rem; margin-bottom: 0; color: #4a5568; }
 
-/* Responsive fixes for Christian Vision */
 @media (max-width: 768px) {
     .split-layout { flex-direction: column; gap: 1.5rem; }
 }
@@ -884,7 +880,6 @@ footer {
     margin: 0 auto;
 }
 
-/* Card styling for each department */
 .staff-group {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
@@ -903,7 +898,6 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-/* Standard List Styling */
 .staff-list {
     list-style: none;
     padding: 0;
@@ -923,7 +917,6 @@ footer {
     padding-bottom: 0;
 }
 
-/* Typography for Names and Roles */
 .staff-name {
     font-weight: bold;
     color: #2d3748;
@@ -937,7 +930,6 @@ footer {
     max-width: 60%;
 }
 
-/* Multi-column Grid specifically for Teaching Assistants */
 .multicolumn-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -945,7 +937,7 @@ footer {
 }
 
 .multicolumn-list li {
-    display: block; /* Overrides the flexbox for standard lists */
+    display: block;
     border-bottom: none;
     padding: 0.5rem;
     background-color: #f8fafc;
@@ -957,7 +949,6 @@ footer {
     display: block;
 }
 
-/* Mobile Responsiveness for Staff */
 @media (max-width: 600px) {
     .staff-list li {
         flex-direction: column;
@@ -976,7 +967,6 @@ footer {
 
 /* --- ADMISSIONS PAGE --- */
 
-/* Document Download Links */
 .doc-links {
     display: flex;
     flex-wrap: wrap;
@@ -1013,7 +1003,6 @@ footer {
     box-shadow: 0 4px 6px rgba(34, 49, 108, 0.15);
 }
 
-/* Important Highlight Box */
 .highlight-box {
     background-color: #fdf5f5;
     border-left: 5px solid #C02C21;
@@ -1031,7 +1020,6 @@ footer {
 
 /* --- GOVERNORS PAGE / SHARED COMPONENTS --- */
 
-/* Single Box for Standard Bullet Lists */
 .single-box-list {
     background-color: #f8fafc;
     padding: 2rem 2rem 2rem 3rem;
@@ -1069,10 +1057,10 @@ footer {
     display: flex;
     align-items: center;
     background-color: #ffffff;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #22316C !important;
     border-radius: 8px;
     padding: 1.2rem 1.5rem;
-    color: #22316C;
+    color: #22316C !important;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -1081,44 +1069,48 @@ footer {
     transition: all 0.2s ease;
 }
 
-.policy-link svg {
+.policy-link svg,
+.policy-link svg path {
     flex-shrink: 0;
     margin-right: 1rem;
-    fill: #22316C; /* Dark blue document icon */
+    fill: #22316C !important;
     transition: transform 0.2s ease, fill 0.2s ease;
 }
 
 .policy-link:hover {
-    border-color: #22316C;
-    background-color: #22316C;
-    color: #ffffff; /* White text on hover */
+    border-color: #22316C !important;
+    background-color: #22316C !important;
+    color: #ffffff !important;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(34, 49, 108, 0.15);
 }
 
-.policy-link:hover svg {
-    fill: #ffffff; /* White icon on hover */
+.policy-link:hover svg,
+.policy-link:hover svg path {
+    fill: #ffffff !important;
     transform: scale(1.1);
 }
 
-/* Red Override Class (#C02C21) for key safeguarding/behaviour policies */
+/* Red Override Class (#C02C21) for Behaviour, Charging, & Safeguarding */
 .policy-link.red {
-    border-color: #C02C21;
-    color: #C02C21;
+    border-color: #C02C21 !important;
+    color: #C02C21 !important;
 }
 
-.policy-link.red svg {
-    fill: #C02C21;
+.policy-link.red svg,
+.policy-link.red svg path {
+    fill: #C02C21 !important;
 }
 
 .policy-link.red:hover {
-    background-color: #C02C21;
-    border-color: #C02C21;
-    color: #ffffff;
+    background-color: #C02C21 !important;
+    border-color: #C02C21 !important;
+    color: #ffffff !important;
 }
 
-.policy-link.red:hover svg {
-    fill: #ffffff;
+.policy-link.red:hover svg,
+.policy-link.red:hover svg path {
+    fill: #ffffff !important;
 }
 
 /* --- INSPECTION & RESULTS PAGE / TABLES --- */
@@ -1127,13 +1119,13 @@ footer {
     font-size: 0.95rem;
     color: #718096;
     font-style: italic;
-    margin-top: -1rem; /* Pulls it up closer to the h3 heading */
+    margin-top: -1rem;
     margin-bottom: 1rem;
 }
 
 .table-responsive {
     width: 100%;
-    overflow-x: auto; /* Allows the table to swipe sideways on tiny phone screens */
+    overflow-x: auto;
     margin-bottom: 2.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(34, 49, 108, 0.05);
@@ -1144,7 +1136,7 @@ footer {
     border-collapse: collapse;
     background-color: #ffffff;
     text-align: left;
-    min-width: 600px; /* Ensures the table doesn't squish too tightly on mobile */
+    min-width: 600px;
 }
 
 .data-table thead {
@@ -1164,12 +1156,10 @@ footer {
     color: #4a5568;
 }
 
-/* Removes the border on the very last row so it looks clean */
 .data-table tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* Adds a subtle hover effect to rows for easier reading */
 .data-table tbody tr:hover {
     background-color: #f8fafc;
 }
@@ -1183,11 +1173,11 @@ footer {
 }
 
 .main-text {
-    flex: 1; /* Takes up all the remaining space on the left */
+    flex: 1;
 }
 
 .sidebar-links {
-    width: 320px; /* Locks the right column to a fixed width */
+    width: 320px;
     flex-shrink: 0;
     background-color: #f8fafc;
     padding: 1.8rem;
@@ -1204,7 +1194,6 @@ footer {
     padding-bottom: 0.5rem;
 }
 
-/* Forces the document buttons to stack vertically instead of wrapping */
 .vertical-links {
     display: flex;
     flex-direction: column;
@@ -1213,10 +1202,9 @@ footer {
 
 .vertical-links .doc-btn {
     width: 100%;
-    justify-content: flex-start; /* Keeps the icon and text aligned to the left */
+    justify-content: flex-start;
 }
 
-/* Responsive: Stacks the columns on top of each other on smaller screens */
 @media (max-width: 850px) {
     .layout-with-sidebar {
         flex-direction: column;
@@ -1229,9 +1217,7 @@ footer {
     }
 }
 
-/* ========================================= */
-/* --- CLASS BLOG PAGES / EVENT CARDS ---    */
-/* ========================================= */
+/* --- CLASS BLOG PAGES / EVENT CARDS --- */
 
 .intro-text {
     font-size: 1.1rem;
@@ -1240,18 +1226,16 @@ footer {
     line-height: 1.8;
 }
 
-/* The main container for each event */
 .event-card {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    border-top: 4px solid #22316C; /* St Eanswythe Blue */
+    border-top: 4px solid #22316C;
     border-radius: 8px;
     padding: 2.5rem;
     margin-bottom: 2.5rem;
     box-shadow: 0 4px 6px rgba(34, 49, 108, 0.05);
 }
 
-/* Flexbox to keep the title on the left and date on the right */
 .event-header {
     display: flex;
     justify-content: space-between;
@@ -1262,12 +1246,11 @@ footer {
 }
 
 .event-header h2 {
-    margin: 0; /* Removes default margin so it aligns perfectly with the date */
+    margin: 0;
     color: #C02C21;
     padding-right: 1rem;
 }
 
-/* Styles the date into a neat little badge */
 .event-date {
     display: inline-flex;
     align-items: center;
@@ -1278,7 +1261,7 @@ footer {
     border: 1px solid #e2e8f0;
     font-size: 0.95rem;
     font-weight: 600;
-    white-space: nowrap; /* Stops the date from breaking onto two lines */
+    white-space: nowrap;
 }
 
 .event-date svg {
@@ -1292,28 +1275,26 @@ footer {
     margin-bottom: 0;
 }
 
-/* CSS Grid for the 3-across photo layout */
 .photo-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 1rem; /* Space between photos */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
     margin-top: 2rem;
 }
 
 .photo-gallery img {
     width: 100%;
-    height: 220px; /* Locks all images to the same height */
-    object-fit: cover; /* Crops the images perfectly so they don't stretch */
+    height: 220px;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.2s ease;
 }
 
 .photo-gallery img:hover {
-    transform: scale(1.02); /* Slight zoom effect when a parent hovers over a photo */
+    transform: scale(1.02);
 }
 
-/* Responsive Rules for Mobile Phones */
 @media (max-width: 768px) {
     .event-card {
         padding: 1.5rem;
@@ -1321,24 +1302,21 @@ footer {
     
     .event-header {
         flex-direction: column;
-        align-items: flex-start; /* Stacks the title and date on mobile */
+        align-items: flex-start;
         gap: 1rem;
     }
 
     .photo-gallery {
-        grid-template-columns: 1fr; /* Changes from 3-across to 1-across on phones */
+        grid-template-columns: 1fr;
     }
     
     .photo-gallery img {
-        height: auto; /* Lets the images size naturally on mobile */
+        height: auto;
     }
 }
 
-/* ========================================= */
-/* --- SCHOOL MEALS PAGE ---                 */
-/* ========================================= */
+/* --- SCHOOL MEALS PAGE --- */
 
-/* Grid layout to display the 5 days in a neat wrapping format */
 .menu-week-card {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1346,11 +1324,10 @@ footer {
     margin-top: 1.5rem;
 }
 
-/* Individual day card styling */
 .menu-day {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    border-top: 5px solid #22316C; /* St Eanswythe Blue */
+    border-top: 5px solid #22316C;
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 4px 6px rgba(34, 49, 108, 0.05);
@@ -1365,7 +1342,7 @@ footer {
 }
 
 .day-title {
-    color: #C02C21; /* St Eanswythe Red */
+    color: #C02C21;
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -1384,7 +1361,6 @@ footer {
     padding: 0.5rem 0;
 }
 
-/* Styles the 'OR' text into a neat divider with lines on the sides */
 .meal-or {
     text-align: center;
     font-weight: bold;
@@ -1406,11 +1382,9 @@ footer {
     margin: 0 10px;
 }
 
-/* Pushes the dessert to the bottom of the card and gives it a dashed line */
 .meal-dessert {
-    margin-top: auto; /* Automatically pushes this to the very bottom */
+    margin-top: auto;
     padding-top: 1rem;
-    margin-top: 1rem;
     border-top: 1px dashed #cbd5e0;
     color: #22316C;
     font-weight: 600;
@@ -1418,9 +1392,8 @@ footer {
     text-align: center;
 }
 
-/* The healthy food notice box */
 .notice-box {
-    background-color: #eef2fa; /* Very light blue */
+    background-color: #eef2fa;
     border-left: 5px solid #22316C;
     padding: 1.5rem;
     border-radius: 0 8px 8px 0;
@@ -1434,11 +1407,8 @@ footer {
     line-height: 1.6;
 }
 
-/* ========================================= */
-/* --- CONTACT US PAGE ---                   */
-/* ========================================= */
+/* --- CONTACT US PAGE --- */
 
-/* 50/50 split for the contact info and the map */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1464,7 +1434,6 @@ footer {
     text-decoration: underline;
 }
 
-/* Styling for the Key Contacts list */
 .contact-list {
     list-style: none;
     padding: 0;
@@ -1488,7 +1457,6 @@ footer {
     margin-bottom: 0.2rem;
 }
 
-/* Map container styling */
 .map-container {
     width: 100%;
     min-height: 400px;
@@ -1504,19 +1472,17 @@ footer {
     border: none;
 }
 
-/* Ensure headings inside notice boxes don't have awkward gaps */
 .notice-box h3 {
     margin-top: 0;
 }
 
-/* Responsive: Stacks the text on top of the map on phones */
 @media (max-width: 850px) {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
     .map-container {
-        height: 400px; /* Gives the map a fixed height when stacked */
+        height: 400px;
     }
 }
 
@@ -1530,11 +1496,8 @@ footer {
     font-weight: normal;
 }
 
-/* ========================================= */
-/* --- CURRICULUM PAGE GRIDS ---             */
-/* ========================================= */
+/* --- CURRICULUM PAGE GRIDS --- */
 
-/* Main Subject Cards (Bold & Colorful) */
 .subject-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -1544,7 +1507,7 @@ footer {
 }
 
 .subject-btn {
-    background-color: #2b6cb0; /* Adjust to match your school blue if needed */
+    background-color: #2b6cb0;
     color: #ffffff;
     padding: 1.5rem 1rem;
     text-align: center;
@@ -1565,7 +1528,6 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Class Map Buttons (Clean & Outlined) */
 .class-map-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
